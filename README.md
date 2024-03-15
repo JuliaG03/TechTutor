@@ -21,7 +21,7 @@ Forum Integration: Engage with fellow learners in dedicated forums for each lear
 
 
 ***
-Developer Team :
-  Grasu Julia
-  Fota Stefania-Flavia
-  Petre-Soldan Adela 
+Developer Team:\n
+  Grasu Julia\n
+  Fota Stefania-Flavia\n
+  Petre-Soldan Adela \n
