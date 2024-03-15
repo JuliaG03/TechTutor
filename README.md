@@ -4,7 +4,7 @@ MDS - project
 
 TECHTUTOR is a mobile app designed to provide bite-sized tutorials for computer science topics, optimized for on-the-go learning. The app offers a diverse range of learning paths covering programming languages, algorithms, and more.
 
-Initial features ( to be modified ):
+# Initial features ( to be modified ):
 
 Bite-sized Tutorials: Access quick and effective tutorials on various computer science topics.
 
