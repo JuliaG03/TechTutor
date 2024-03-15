@@ -17,3 +17,11 @@ Leaderboard: Compete with other learners and climb the leaderboard by earning po
 Learning Paths: Choose from different learning paths tailored to your skill level and interests.
 
 Forum Integration: Engage with fellow learners in dedicated forums for each learning path, facilitating collaboration and knowledge sharing.
+
+
+
+***
+Developer Team :
+  Grasu Julia
+  Fota Stefania-Flavia
+  Petre-Soldan Adela 
