@@ -1,27 +1,50 @@
-# TechTutor
-MDS - project
+# Welcome to your Expo app 👋
 
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-TECHTUTOR is a mobile app designed to provide bite-sized tutorials for computer science topics, optimized for on-the-go learning. The app offers a diverse range of learning paths covering programming languages, algorithms, and more.
+## Get started
 
-# Initial features ( to be modified ):
+1. Install dependencies
 
-Bite-sized Tutorials: Access quick and effective tutorials on various computer science topics.
+   ```bash
+   npm install
+   ```
 
-Achievements: Unlock achievements as you progress through different learning paths.
+2. Start the app
 
-Reward System: Earn points for completing tutorials and redeem them for exclusive perks and bonuses.
+   ```bash
+    npx expo start
+   ```
 
-Leaderboard: Compete with other learners and climb the leaderboard by earning points.
+In the output, you'll find options to open the app in a
 
-Learning Paths: Choose from different learning paths tailored to your skill level and interests.
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-Forum Integration: Engage with fellow learners in dedicated forums for each learning path, facilitating collaboration and knowledge sharing.
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
+## Get a fresh project
 
+When you're ready, run:
 
-***
-Developer Team:<br>
-  Grasu Julia<br>
-  Fota Stefania-Flavia<br>
-  Petre-Soldan Adela<br>
+```bash
+npm run reset-project
+```
+
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+
+## Learn more
+
+To learn more about developing your project with Expo, look at the following resources:
+
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+
+## Join the community
+
+Join our community of developers creating universal apps.
+
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
