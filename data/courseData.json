@@ -1,0 +1,68 @@
+{
+    "language":[
+        {
+            "id":0,
+            "name":"python",
+            "img":"python.png",
+            "sections": [
+                {
+                    "id": "Lesson 1",
+                    "data": [
+                        {
+                            "tier": 1,
+                            "exercises": [
+                                {
+                                    "id": "1",
+                                    "learner": {
+                                        "level": 1,
+                                        "lesson": 1,
+                                        "isCompleted": false
+                                    },
+                                    "definition": {
+                                        "name": "Introduction to Python Programming",
+                                        "levels": 50,
+                                        "lessons": 3
+                                    },
+                                    "questions":{
+                                        "q1":{
+                                            "question":"Aici pui intrebarea",
+                                            "options":[
+                                                { "id": "1", "option": "" },
+                                                { "id": "2", "option": "" }
+                                            ],
+                                            "answer": "aici pui ce option e raspunsul corect (nu id-ul, direct raspunsul)"
+                                        },
+                                        "q2":{
+                                            
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "tier": 2,
+                            "exercises": [
+                                {
+                                    "id": "2",
+                                    "learner": {
+                                        
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id":1,
+            "name":"c++",
+            "img":"c++.png"
+        },
+        {
+            "id":3,
+            "name":"java",
+            "img":"java.png"
+        }
+    ]
+}
