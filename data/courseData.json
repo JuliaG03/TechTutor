@@ -25,6 +25,60 @@
                                     },
                                     "questions":{
                                         "q1":{
+                                            "question":"Who is the creator of the Python programming language?",
+                                            "options":[
+                                                { "id": "1", "option": "A) Dennis Ritchie" },
+                                                { "id": "2", "option": "B) Guido van Rossum" },
+                                                { "id": "2", "option": "C) James Gosling" },
+                                                { "id": "2", "option": "D) Linus Torvalds" }
+                                            ],
+                                            "answer": "aici pui ce option e raspunsul corect (nu id-ul, direct raspunsul)"
+                                        },
+                                        "q2":{
+                                            
+                                        }
+                                    }
+                                },
+                                {
+                                    "id": 2,
+                                    "learner": {
+                                        "level": 2,
+                                        "lesson": 3,
+                                        "isCompleted": false
+                                    },
+                                    "definition": {
+                                        "name": "Setting Up Your Python Environment",
+                                        "levels": 100,
+                                        "lessons": 4
+                                    },
+                                    "questions":{
+                                        "q1":{
+                                            "question":"Aici pui intrebarea",
+                                            "options":[
+                                                { "id": "1", "option": "" },
+                                                { "id": "2", "option": "" }
+                                            ],
+                                            "answer": "aici pui ce option e raspunsul corect (nu id-ul, direct raspunsul)"
+                                        },
+                                        "q2":{
+                                            
+                                        }
+                                    }
+                                },
+                                {
+                                    "id": 3,
+                                    "learner": {
+                                        "level": 2,
+                                        "lesson": 3,
+                                        "isCompleted": false
+                                    },
+                                    "definition": {
+                                        "name": "Basic Syntax and Variables in Python",
+                                        "levels": 100,
+                                        "lessons": 4
+                                    },
+                                    "questions":{
+                                        "q1":{
                                             "question":"Aici pui intrebarea",
                                             "options":[
                                                 { "id": "1", "option": "" },
@@ -55,7 +109,33 @@
                                         "isCompleted": false
                                     },
                                     "definition": {
-                                        "name": "Introduction to Python Programming",
+                                        "name": "Input and Output Operations in Python",
+                                        "levels": 50,
+                                        "lessons": 3
+                                    },
+                                    "questions":{
+                                        "q1":{
+                                            "question":"Aici pui intrebarea",
+                                            "options":[
+                                                { "id": "1", "option": "" },
+                                                { "id": "2", "option": "" }
+                                            ],
+                                            "answer": "aici pui ce option e raspunsul corect (nu id-ul, direct raspunsul)"
+                                        },
+                                        "q2":{
+                                            
+                                        }
+                                    }
+                                },
+                                {
+                                    "id": "2",
+                                    "learner": {
+                                        "level": 1,
+                                        "lesson": 1,
+                                        "isCompleted": false
+                                    },
+                                    "definition": {
+                                        "name": "Control Flow: Decision Making with If-Else Statements",
                                         "levels": 50,
                                         "lessons": 3
                                     },
@@ -91,7 +171,7 @@
                                         "isCompleted": false
                                     },
                                     "definition": {
-                                        "name": "Introduction to Python Programming",
+                                        "name": "Loops: Iterating through Code with For and While Loops",
                                         "levels": 50,
                                         "lessons": 3
                                     },

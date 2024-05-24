@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { ScrollView, Text, View, SafeAreaView, StyleSheet, Image } from "react-native";
+import { ScrollView, Text, View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 import CourseDetailsBar from "@/components/CourseDetailsBar";
 import LessonItem from "@/components/LessonItem";
 import courseData from "@/data/courseData.json";
@@ -10,6 +11,7 @@ const CIRCLE_RADIUS = 48;
 
 export default function LearningPaths() {
   const colorScheme = useColorScheme();
+  const navigation = useNavigation(); // Initialize useNavigation hook
   const [courseId, setCourseId] = useState(0); // Default to the first course
   const [sectionId, setSectionId] = useState(0); // Default to the first section
   const [lessonId, setLessonId] = useState(0); // Default to the first lesson
@@ -24,7 +26,7 @@ export default function LearningPaths() {
     <View key={sectionIndex} style={styles.sectionContainer}>
       <View style={styles.sectionHeader}>
         <View style={{ flex: 1 }}>
-          <Text style={[styles.sectionTitle , {color: Colors[colorScheme ?? "light"].text}]}>
+          <Text style={[styles.sectionTitle, { color: Colors[colorScheme ?? "light"].text }]}>
             {section.id}
           </Text>
         </View>
@@ -48,6 +50,7 @@ export default function LearningPaths() {
               onPress={() => {
                 setSectionId(sectionIndex);
                 setLessonId(lessonIndex);
+                navigation.navigate('exercisePage', { exerciseId: exercise.id });
               }}
             />
           );

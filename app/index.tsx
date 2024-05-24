@@ -1,7 +1,7 @@
 import { View, Text, Image, SafeAreaView, ScrollView } from 'react-native';
 import { Redirect, router, Link } from 'expo-router';
-import React from 'react';
-
+import React, { useLayoutEffect }from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { images } from '../constants'
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -10,10 +10,16 @@ import { StatusBar } from 'expo-status-bar';
 
 export default function HomeScreen() {
     const colorScheme = useColorScheme();
-    
+    const navigation = useNavigation();
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+          headerShown: false,
+        });
+      }, [navigation]);
+
     return (
         <SafeAreaView style={ {backgroundColor: Colors[colorScheme ?? 'light'].background} } className="h-full">
-            <ScrollView contentContainerStyle={{ height: '100%'}}>
                 <View className="w-full px-4 items-center justify-center min-h-[85vh]">
                     <Image
                         source={images.logo}
@@ -31,8 +37,6 @@ export default function HomeScreen() {
                         handlePress={() => {router.push('/learningpaths')}} // aici de modificat unde ne duce butonul (in sign-in pentru cand facem sign-in/log-in)
                         containerStyles="w-full mt-7"/>
                 </View>
-            </ScrollView>  
-
             <StatusBar backgroundColor='#161622' style='light'/>
         </SafeAreaView>
     );
