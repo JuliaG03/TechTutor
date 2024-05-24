@@ -12,9 +12,13 @@ import eyeHide from "@/assets/icons/eye-hide.png";
 import eye from "@/assets/icons/eye.png";
 import play from "@/assets/icons/play.png";
 import friends from "@/assets/icons/friends.png"
-import learningpaths from "@/assets/icons/learningpaths.png"
-import leaderboard from "@/assets/icons/leaderboard.png"
-import chat from "@/assets/icons/chat.png"
+import learningpaths from "@/assets/icons/learningpaths.png";
+import leaderboard from "@/assets/icons/leaderboard.png";
+import chat from "@/assets/icons/chat.png";
+import heart from "@/assets/icons/heart.png";
+import python from "@/assets/icons/python.png";
+import java from "@/assets/icons/java.png";
+import cplusplus from "@/assets/icons/c++.png";
 
 export default {
   play,
@@ -33,5 +37,9 @@ export default {
   friends,
   learningpaths,
   leaderboard,
-  chat
+  chat,
+  heart,
+  python,
+  java,
+  cplusplus
 };

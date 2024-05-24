@@ -1,10 +1,11 @@
 import { Tabs, Redirect } from 'expo-router';
 import { View, Image, Text } from 'react-native';
-import React from 'react';
-
+import React, { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { icons } from '@/constants';
+import Header from '@/components/Header';
 
 const TabIcon = ({ icon, color, name, focused }) => {
   const colorScheme = useColorScheme();
@@ -26,8 +27,12 @@ const TabIcon = ({ icon, color, name, focused }) => {
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const [selectedLanguage, setSelectedLanguage] = useState("Python");
+  const [hearts, setHearts] = useState(5);
 
   return (
+    <View style={{flex: 1}}>
+      <Header selectedLanguage={selectedLanguage} hearts={hearts} />
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tabIconSelected,
@@ -35,7 +40,10 @@ export default function TabLayout() {
         tabBarShowLabel: false,
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: Colors[colorScheme ?? 'light'].tabBackground
+          backgroundColor: Colors[colorScheme ?? 'light'].tabBackground,
+          borderTopWidth: 1,
+          borderTopColor: Colors[colorScheme ?? 'light'].tabTopColor,
+          height: 84
         }
       }}>
       <Tabs.Screen
@@ -123,6 +131,10 @@ export default function TabLayout() {
         }}
       />
     </Tabs>
+    <StatusBar translucent={false} style="auto"/>
+
+    </View>
+    
     
   );
 }
