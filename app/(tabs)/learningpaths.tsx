@@ -1,61 +1,101 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Image,
-  FlatList,
-  TouchableOpacity,
-  Dimensions
-} from "react-native";
-import Exercises from "@/components/Exercises";
-import React, { useLayoutEffect, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
-import data from "@/data/courseData.json";
+import React, { useState } from "react";
+import { ScrollView, Text, View, SafeAreaView, StyleSheet, Image } from "react-native";
+import CourseDetailsBar from "@/components/CourseDetailsBar";
+import LessonItem from "@/components/LessonItem";
+import courseData from "@/data/courseData.json";
+import { Colors } from "@/constants/Colors";
+import { useColorScheme } from "react-native";
 
-import { StatusBar } from "expo-status-bar";
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+const CIRCLE_RADIUS = 48;
 
-const LearningPaths = () => {
+export default function LearningPaths() {
   const colorScheme = useColorScheme();
-  const navigation = useNavigation();
-  const languageData = data.language[0];
+  const [courseId, setCourseId] = useState(0); // Default to the first course
+  const [sectionId, setSectionId] = useState(0); // Default to the first section
+  const [lessonId, setLessonId] = useState(0); // Default to the first lesson
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  }, []);
+  const language = courseData.language[courseId]; // Get the selected language/course
+  if (!language) return null;
 
-  return (
-    <SafeAreaView className="items-center flex-1" style={{backgroundColor: Colors[colorScheme ?? "light"].tabBackground}}>
-      <StatusBar style="auto"/>
-      <FlatList
-        data={languageData.sections}
-        renderItem={renderSection}
-        keyExtractor={(item) => item.id}
-        showsVerticalScrollIndicator={false}
-      />
-    </SafeAreaView>
-  );
-};
+  const currentSection = language.sections[sectionId];
+  if (!currentSection) return null;
 
-export default LearningPaths;
+  const renderCourseSection = (section, sectionIndex) => (
+    <View key={sectionIndex} style={styles.sectionContainer}>
+      <View style={styles.sectionHeader}>
+        <View style={{ flex: 1 }}>
+          <Text style={[styles.sectionTitle , {color: Colors[colorScheme ?? "light"].text}]}>
+            {section.id}
+          </Text>
+        </View>
+      </View>
+      <View style={styles.lessonsContainer}>
+        {section.data[0].exercises.map((exercise, lessonIndex) => {
+          const isCurrentLesson = sectionId === sectionIndex && lessonId === lessonIndex;
+          const isFinishedLesson = sectionIndex < sectionId || (sectionIndex === sectionId && lessonIndex < lessonId);
 
-const renderSection = ({ item }) => {
-  const { id, data } = item;
-  
-  return (
-    <View className="flex-1 pb-[60px]">
-      {data.map((tier) => {
-        return (
-          <View className="flex flex-row justify-evenly py-[10px]" key={tier.tier}>
-            {tier.exercises.map((exercise) => {
-              return <Exercises exercise={exercise} key={exercise.id} />;
-            })}
-          </View>
-        );
-      })}
+          return (
+            <LessonItem
+              key={lessonIndex}
+              index={lessonIndex}
+              circleRadius={CIRCLE_RADIUS}
+              currentExercise={exercise}
+              isCurrentLesson={isCurrentLesson}
+              isFinishedLesson={isFinishedLesson}
+              lessonDescription={exercise.definition.name}
+              totalExercise={section.data[0].exercises.length}
+              style={{}}
+              onPress={() => {
+                setSectionId(sectionIndex);
+                setLessonId(lessonIndex);
+              }}
+            />
+          );
+        })}
+      </View>
     </View>
   );
-};
+
+  return (
+    <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? "light"].tabBackground }]}>
+      <CourseDetailsBar courseName={language.name} courseImg={`@/assets/icons/${language.img}`} />
+      <ScrollView
+        contentContainerStyle={styles.scrollViewContent}
+        showsVerticalScrollIndicator={false}
+      >
+        {language.sections.map((section, index) =>
+          renderCourseSection(section, index)
+        )}
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  scrollViewContent: {
+    paddingTop: 5,
+    paddingBottom: 5,
+    gap: 10,
+  },
+  sectionContainer: {
+    paddingHorizontal: 15,
+    marginTop: 20,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 15,
+    borderRadius: 8,
+    marginBottom: 10,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  lessonsContainer: {
+    alignItems: 'center',
+  },
+});
