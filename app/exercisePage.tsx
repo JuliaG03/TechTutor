@@ -85,7 +85,7 @@ const ExercisePage = () => {
             <TouchableOpacity
               key={index}
               style={{
-                backgroundColor: Colors[colorScheme ?? 'light'].tabBackground,
+                backgroundColor: Colors[colorScheme ?? 'light'].tint,
                 padding: 16,
                 borderRadius: 8,
                 marginBottom: 10,
