@@ -16,6 +16,9 @@ import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import Settings from '@/app/(tabs)/settings';
 import AuthProvider from '@/providers/AuthProvider';
+import MainMenu from '@/components/MainMenu';
+import LeaderBoard from '@/app/(tabs)/leaderboard';
+
 const Stack = createStackNavigator();
 
 const AppStackNavigation = () => {
@@ -23,19 +26,21 @@ const AppStackNavigation = () => {
     return (
         <AuthProvider>
             <NavigationContainer independent={true}>
-                <Stack.Navigator screenOptions={{ headerShown: true, headerStyle: { backgroundColor: Colors[colorScheme ?? 'light'].background, elevation: 0, shadowColor: Colors[colorScheme ?? 'light'].background} }}>
+                <Stack.Navigator screenOptions={{ headerShown: true, headerStyle: { backgroundColor: Colors[colorScheme ?? 'light'].background, elevation: 0, shadowColor: Colors[colorScheme ?? 'light'].background } }}>
                     <Stack.Screen name="SignIn" component={SignInScreen} options={{ headerShown: false }} />
+                    <Stack.Screen name="LearningPaths" component={LearningPaths} />
                     <Stack.Screen name="ProfileScreen" component={ProfileScreen} options={{title: ''}}/>
                     <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerShown: false }} />
                     <Stack.Screen name="ConfirmEmail" component={ConfirmEmail} options={{ headerShown: false }} />
                     <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
                     <Stack.Screen name="ResetPassword" component={ResetPassword} />
                     <Stack.Screen name="HomeScreen" component={Home} />
-                    <Stack.Screen name="LearningPaths" component={LearningPaths} />
+                    <Stack.Screen name="MainMenu" component={MainMenu} />
                     <Stack.Screen name="Index" component={Index} options={{title: ''}} />
                     <Stack.Screen name="exercisePage" component={exercisePage} />
                     <Stack.Screen name="EditProfileScreen" component={EditProfileScreen} /> 
                     <Stack.Screen name="Settings" component={Settings} />
+                    <Stack.Screen name="LeaderBoard" component={LeaderBoard} />
                 </Stack.Navigator>
             </NavigationContainer>
         </AuthProvider>

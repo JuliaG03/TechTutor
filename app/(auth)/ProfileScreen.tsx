@@ -10,6 +10,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import CustomButton from '@/components/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TabBarIcon } from '../../components/navigation/TabBarIcon';
 
 const ProfileScreen = () => {
   const colorScheme = useColorScheme();
@@ -145,7 +146,8 @@ const ProfileScreen = () => {
             type="Tertiary"
             icon="cog" 
         />
-      </View>
+          </View>
+      
     </SafeAreaView>
   )
 }

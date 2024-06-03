@@ -9,10 +9,11 @@ import { useNavigation } from '@react-navigation/native';
 import AppLogo from '@/components/AppLogo';
 import stylesView from '@/components/Styles';
 import { supabase} from '@/lib/supabase';
-//import { nativeViewHandlerName } from 'react-native-gesture-handler/lib/typescript/handlers/NativeViewGestureHandler';
+import { useAuth } from '@/providers/AuthProvider';
 
 const SignIn = () => {
-    //const [username, setUsername] = useState('');
+
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const { height } = useWindowDimensions();
@@ -25,12 +26,7 @@ const SignIn = () => {
     //    const {error} = await supabase.auth.signInWithPassword({  email, password});
     //    if (error) Alert.alert(error.message);
     //    setLoading(false);
-       navigation.navigate('ProfileScreen');
-    }
-
-    const signInPress = () => {
-        //console.warn("Sign in");
-        navigation.navigate('LearningPaths');
+       navigation.navigate('MainMenu');
     }
 
     const forgotPasswordPress = () => {

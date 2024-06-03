@@ -1,17 +1,21 @@
-import {PropsWithChildren, createContext, useEffect} from 'react';
+import {PropsWithChildren, createContext, useEffect, useContext} from 'react';
 import {supabase} from '@/lib/supabase';
 import {Session} from '@supabase/supabase-js';
 import { useState } from 'react';
+
 type AuthData = {
-    session: Session | null;
+    session: Session | null
 };
-const AuthContext = createContext<AuthData>({});
+
+const AuthContext = createContext<AuthData>({
+    session: null,
+});
 
 export default function AuthProvider({children}:PropsWithChildren) {
     const [session, setSession] = useState<Session | null>(null);
     useEffect(() => {
         const fetchSession = async() => {
-            const {data, error} = await supabase.auth.getSession();
+            const {data} = await supabase.auth.getSession();
             //console.log(data);
             setSession(data.session);
         };
@@ -19,5 +23,9 @@ export default function AuthProvider({children}:PropsWithChildren) {
         fetchSession();
     }, []);
     
-    return <AuthContext.Provider value={{}}>{children}</AuthContext.Provider>;
+    return(
+        <AuthContext.Provider value={{ session }}>{children}</AuthContext.Provider>
+    );
 }
+
+export const useAuth = () => useContext(AuthContext);

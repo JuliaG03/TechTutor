@@ -9,6 +9,8 @@ const stylesView = () => {
     root: {
       alignItems: 'center',
       paddingBottom: '30%',
+      flex: 1,
+      backgroundColor: Colors[colorScheme ?? 'light'].background
     },
     bigView: {
       width: '100%', 
