@@ -25,8 +25,12 @@ const SignUp = () => {
     async function signUpWithEmail() {
        setLoading(true);
        const {error} = await supabase.auth.signUp({ phone, email, password});
-       if (error) Alert.alert(error.message);
-       setLoading(false);
+        setLoading(false);
+        if (error) Alert.alert(error.message);
+        else {
+            navigation.navigate("SignIn");
+        }
+       
     }
     const signUpPress = () => {
         console.warn("Sign Up");

@@ -1,12 +1,58 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
 
-const LeaderBoard = () => {
-  return (
-    <View>
-      <Text>LeaderBoard</Text>
-    </View>
-  )
+interface User {
+    email: string;
 }
 
-export default LeaderBoard
+
+const users: User[] = [
+    
+];
+
+const Leaderboard = () => {
+    const [users, setUsers] = useState<User[]>([]);
+
+    useEffect(() => {
+
+        const fetchUsers = async () => {
+            try {
+                const { data, error } = await supabase.from('users').select('email');
+                if (error) {
+                    throw error;
+                }
+                setUsers(data);
+            } catch (error) {
+                console.error('Error fetching users:');
+            }
+        };
+
+        fetchUsers(); 
+    }, []);
+
+    return (
+        <div>
+            <h1>Leaderboard</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Email</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {users.map((user, index) => (
+                        <tr key={user.email}>
+                            <td>{index + 1}</td>
+                            <td>{user.email}</td>
+                           
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
+};
+
+export default Leaderboard;
