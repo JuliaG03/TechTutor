@@ -20,7 +20,7 @@ const CustomButton = ({ text, onPress, type = "Primary", bgColor, fontColor, ico
             borderRadius: 6,
         },
         containerPrimary: {
-            borderWidth: 1.5,
+            borderWidth: 2.5,
             backgroundColor: Colors[colorScheme ?? 'light'].buttonBackground,
             borderBottomColor: Colors[colorScheme ?? 'light'].borderButton,
             borderRightColor: Colors[colorScheme ?? 'light'].borderButton

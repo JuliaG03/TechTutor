@@ -12,7 +12,6 @@ import { supabase} from '@/lib/supabase';
 import { useAuth } from '@/providers/AuthProvider';
 
 const SignIn = () => {
-
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
@@ -22,11 +21,11 @@ const SignIn = () => {
     const [loading, setLoading] = useState(false);
 
     async function signInWithEmail() {
-    //    setLoading(true);
-    //    const {error} = await supabase.auth.signInWithPassword({  email, password});
-    //    if (error) Alert.alert(error.message);
-    //    setLoading(false);
-       navigation.navigate('MainMenu');
+        setLoading(true);
+        const {error} = await supabase.auth.signInWithPassword({  email, password});
+        if (error) Alert.alert(error.message);
+        else navigation.navigate('MainMenu');
+        setLoading(false); 
     }
 
     const forgotPasswordPress = () => {
