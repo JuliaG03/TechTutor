@@ -95,7 +95,7 @@ const SignUp = () => {
                     <CustomButton disabled={loading} text={loading ? "Creating account...":"Create account"} onPress={signUpWithEmail} type="primary" />
 
                     <Text style={styles.thermsAndPolicy}>
-                        By registering, you confirm that you accept our<ThemedText type="link"> therms of use </ThemedText> and <Text>privacy policy</Text>.
+                        By registering, you confirm that you accept our<ThemedText type="link"> terms of use </ThemedText> and <Text>privacy policy</Text>.
                     </Text>
                     <SocialSignInButtons/>
                     <CustomButton

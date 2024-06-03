@@ -5,6 +5,8 @@
 
 const tintColorLight = '#3cb494';
 const tintColorDark = '#7f65c4';
+const appGreen = '#2ebf91';
+const appPurple = '#8360c3';
 
 export const Colors = {
     light: {
@@ -16,18 +18,18 @@ export const Colors = {
         tabBackground: '#FFFFFF',
         tabTopColor: '#232533',
         backgroundInput: '#F5F9FF',
-        buttonBackground: '#4A148C',
-        borderButton: '#388E3C',
+        buttonBackground: appPurple,
+        borderButton: appGreen,
         textInputPlaceholder: '#78909C',
         text: '#B0BEC5',
-        textColor: '#00695C',
-        textColorPrimary: '#00695C',
+        textColor: appGreen,
+        textColorPrimary: appGreen,
         textC: '#FFFFFF',
-        green: '#4CAF50',
-        purple: '#4CAF50',
-        green2: '#98FB98',
-        purple2: '#C3A3FF',
-        darkPurple: '#4A0080',
+        green: appGreen,
+        purple: appPurple,
+        green2: appPurple,
+        purple2: appPurple,
+        darkPurple: appPurple,
     },
     dark: {
         text: '#ECEDEE',
@@ -39,16 +41,16 @@ export const Colors = {
         tabBackground: '#26292B',
         tabTopColor: '#9BA1A6',
         backgroundInput: '#2C2F33',
-        buttonBackground: '#7f65c4',
-        borderButton: '#388E3C',
+        buttonBackground: appPurple,
+        borderButton: appGreen,
         textInputPlaceholder: '#78909C',
         textColor: '#B0BEC5',
-        textColorPrimary: '#004D40',
-        textC: '#004D40',
-        green: '#4CAF50',
-        purple: '#6A1B9A',
-        green2: '#98FB98',
+        textColorPrimary: appGreen,
+        textC: appGreen,
+        green: appGreen,
+        purple: appPurple,
+        green2: appPurple, //purple arata mai put togheter pt text
         purple2: '#E6E6FA',
-        darkPurple: '#6A0DAD',
+        darkPurple: appPurple,
     },
 };
