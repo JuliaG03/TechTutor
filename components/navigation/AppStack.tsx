@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import SignUpScreen from '../../app/(auth)/sign-up';
 import SignInScreen from '../../app/(auth)/sign-in';
 import ConfirmEmail from '../../app/(auth)/ConfirmEmail'
-import ForgotPassword from '@/app/(auth)/ForgotPassword';
+import ForgotPassword from '@/app/(auth)/forgotpassword';
 import ResetPassword from '../../app/(auth)/ResetPassword';
 import Home from '../HomeScreen';
 import LearningPaths from '../../app/(tabs)/learningpaths';
