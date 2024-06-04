@@ -1,37 +1,42 @@
+import React, { useState, useEffect, useRef } from 'react';
+import {
+    View, Text, TextInput, StyleSheet, FlatList,
+    KeyboardAvoidingView, Platform, TouchableOpacity,
+    Keyboard, TouchableWithoutFeedback, Animated, ScrollView
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { View, Text, Animated, StyleSheet, Image, TextInput, ImageBackground, Platform, Modal, PanResponder, FlatList } from 'react-native'
-import React, { useRef, useLayoutEffect } from 'react';
-import CustomInput from '@/components/CustomInput';
-import stylesView from '@/components/Styles';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { Avatar, Title, Caption, TouchableRipple } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import images from '../../constants/images';
-import CustomButton from '@/components/CustomButton';
-import { useNavigation } from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useState } from 'react';
+import moment from 'moment';
 
 const Support = () => {
     const colorScheme = useColorScheme();
     const [messages, setMessages] = useState([
-        { id: '1', text: 'Hello! How can we help you today?', sender: 'support' },
+        { id: '1', text: 'Hello! How can we help you today?', sender: 'support', timestamp: new Date() },
     ]);
     const [input, setInput] = useState('');
+    const [typing, setTyping] = useState(false);
+    const flatListRef = useRef(null);
 
     const handleSend = () => {
         if (input.trim().length === 0) return;
 
-        const newMessage = { id: Date.now().toString(), text: input, sender: 'user' };
+        const newMessage = { id: Date.now().toString(), text: input, sender: 'user', timestamp: new Date() };
         setMessages((prevMessages) => [...prevMessages, newMessage]);
-
         setInput('');
 
+        setTyping(true);
+
         setTimeout(() => {
-            const autoReply = { id: Date.now().toString(), text: 'Thank you for reaching out! Our support team will contact you shortly.', sender: 'support' };
+            setTyping(false);
+            const autoReply = { id: Date.now().toString(), text: 'Thank you for reaching out! Our support team will contact you shortly.', sender: 'support', timestamp: new Date() };
             setMessages((prevMessages) => [...prevMessages, autoReply]);
-        }, 1000);
+        }, 3000);
+    };
+
+    const formatTimestamp = (timestamp) => {
+        return moment(timestamp).format('D MMM, h:mm A');
     };
 
     const styles = StyleSheet.create({
@@ -45,18 +50,47 @@ const Support = () => {
             paddingTop: 20,
         },
         messageContainer: {
-            padding: 10,
+            padding: 15,
             marginVertical: 5,
-            borderRadius: 5,
+            borderRadius: 20,
             maxWidth: '80%',
+            alignSelf: 'flex-start',
+            overflow: 'hidden',
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.1,
+            shadowRadius: 5,
+            elevation: 2,
         },
         userMessage: {
             backgroundColor: Colors[colorScheme ?? 'light'].buttonBackground,
             alignSelf: 'flex-end',
+            borderBottomRightRadius: 0,
         },
         supportMessage: {
             backgroundColor: Colors[colorScheme ?? 'light'].backgroundInput,
+            borderBottomLeftRadius: 0,
+        },
+        typingIndicator: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            padding: 15,
+            marginVertical: 5,
+            borderRadius: 20,
+            backgroundColor: Colors[colorScheme ?? 'light'].backgroundInput,
+            maxWidth: '50%',
             alignSelf: 'flex-start',
+            borderBottomLeftRadius: 0,
+        },
+        typingText: {
+            fontSize: 20,
+            color: Colors[colorScheme ?? 'light'].text,
+        },
+        dot: {
+            fontSize: 24,
+            lineHeight: 24,
+            color: Colors[colorScheme ?? 'light'].text,
+            marginHorizontal: 1,
         },
         inputContainer: {
             flexDirection: 'row',
@@ -68,18 +102,19 @@ const Support = () => {
         input: {
             flex: 1,
             padding: 10,
-            borderRadius: 5,
+            borderRadius: 20,
             borderWidth: 1,
             borderColor: Colors[colorScheme ?? 'light'].tabTopColor,
             backgroundColor: Colors[colorScheme ?? 'light'].background,
             marginRight: 10,
+            color: Colors[colorScheme ?? 'light'].text,
         },
         sendButton: {
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: Colors[colorScheme ?? 'light'].buttonBackground,
             padding: 10,
-            borderRadius: 5,
+            borderRadius: 20,
         },
         sendIcon: {
             color: Colors[colorScheme ?? 'light'].background,
@@ -87,37 +122,90 @@ const Support = () => {
         messageText: {
             color: Colors[colorScheme ?? 'light'].text,
         },
+        timestampContainer: {
+            marginTop: 5,
+        },
+        timestampText: {
+            color: Colors[colorScheme ?? 'light'].text,
+            fontSize: 10,
+        },
+        timestampRight: {
+            alignSelf: 'flex-end',
+            marginRight: 10,
+        },
+        timestampLeft: {
+            alignSelf: 'flex-start',
+            marginLeft: 10,
+        },
     });
+
+    useEffect(() => {
+        if (flatListRef.current) {
+            flatListRef.current.scrollToEnd({ animated: true });
+        }
+    }, [messages]);
 
     return (
         <SafeAreaView style={styles.container}>
-            <FlatList
-                style={styles.messageList}
-                data={messages}
-                keyExtractor={(item) => item.id}
-                renderItem={({ item }) => (
-                    <View
-                        style={[
-                            styles.messageContainer,
-                            item.sender === 'user' ? styles.userMessage : styles.supportMessage,
-                        ]}
-                    >
-                        <Text style={styles.messageText}>{item.text}</Text>
+            <KeyboardAvoidingView
+                style={{ flex: 1 }}
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}
+            >
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                    <View style={{ flex: 1 }}>
+                        <FlatList
+                            ref={flatListRef}
+                            style={styles.messageList}
+                            data={messages}
+                            keyExtractor={(item) => item.id}
+                            renderItem={({ item }) => (
+                                <View>
+                                    <View
+                                        style={[
+                                            styles.messageContainer,
+                                            item.sender === 'user' ? styles.userMessage : styles.supportMessage,
+                                        ]}
+                                    >
+                                        <Text style={styles.messageText}>{item.text}</Text>
+                                    </View>
+                                    <View
+                                        style={[
+                                            styles.timestampContainer,
+                                            item.sender === 'user' ? styles.timestampRight : styles.timestampLeft,
+                                        ]}
+                                    >
+                                        <Text style={styles.timestampText}>{formatTimestamp(item.timestamp)}</Text>
+                                    </View>
+                                </View>
+                            )}
+                            ListFooterComponent={
+                                typing ? (
+                                    <View style={styles.typingIndicator}>
+                                        <Text style={styles.dot}>.</Text>
+                                        <Text style={styles.dot}>.</Text>
+                                        <Text style={styles.dot}>.</Text>
+                                    </View>
+                                ) : null
+                            }
+                        />
                     </View>
-                )}
-            />
-            <View style={styles.inputContainer}>
-                <TextInput
-                    style={styles.input}
-                    value={input}
-                    onChangeText={setInput}
-                    placeholder="Type a message"
-                    placeholderTextColor={Colors[colorScheme ?? 'light'].textInputPlaceholder}
-                />
-                <TouchableOpacity onPress={handleSend} style={styles.sendButton}>
-                    <Icon name="send" size={20} style={styles.sendIcon} />
-                </TouchableOpacity>
-            </View>
+                </TouchableWithoutFeedback>
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        style={styles.input}
+                        value={input}
+                        onChangeText={setInput}
+                        placeholder="Type a message"
+                        placeholderTextColor={Colors[colorScheme ?? 'light'].textInputPlaceholder}
+                        onSubmitEditing={handleSend}
+                        blurOnSubmit={false}
+                    />
+                    <TouchableOpacity onPress={handleSend} style={styles.sendButton}>
+                        <Icon name="send" size={20} style={styles.sendIcon} />
+                    </TouchableOpacity>
+                </View>
+            </KeyboardAvoidingView>
         </SafeAreaView>
     );
 };
