@@ -6,6 +6,7 @@ import { Title, Caption } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { supabase } from '@/lib/supabase';
 
 const Settings = () => {
     const colorScheme = useColorScheme();
@@ -68,13 +69,13 @@ const Settings = () => {
         { name: 'Notifications', icon: 'bell', screen: 'Notifications' },
         { name: 'Privacy', icon: 'lock-outline', screen: 'Privacy' },
         { name: 'About', icon: 'information', screen: 'About' },
-        { name: 'Logout', icon: 'logout', screen: 'Logout' },
+        { name: 'Logout', icon: 'logout', screen: 'Logout'}
     ];
+
 
     const handleMenuPress = (screen) => {
         if (screen === 'Logout') {
-            // Handle logout functionality here
-            // For example, you can clear the user session and navigate to the login screen
+            supabase.auth.signOut();
         } else {
             navigation.navigate(screen);
         }
