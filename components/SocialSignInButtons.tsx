@@ -16,15 +16,17 @@ const SocialSignInButtons = () => {
                 text="Sign in with Google"
                 onPress={signInWithGoogle}
                 type="Primary"
-                bgColor="#FAE9EA"  
-                fontColor="#DD4D44" 
+                bgColor="#E7EAF4"  
+                fontColor="#8360c3" 
+                icon="google"
             />
             <CustomButton
                 text="Sign in with Facebook"
                 onPress={signInWithFacebook}
                 type="Primary"
                 bgColor="#E7EAF4"  
-                fontColor="#4765A9" 
+                fontColor="#8360c3" 
+                icon="facebook"
             />
         </>
     );
