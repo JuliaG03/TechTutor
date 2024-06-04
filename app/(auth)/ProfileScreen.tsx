@@ -50,7 +50,7 @@ const ProfileScreen = () => {
         menuWrapper: {
             marginTop: 20,
             paddingHorizontal: 20,
-            paddingRight: 20,
+            paddingRight:20
 
         },
         menuItem: {
@@ -70,7 +70,7 @@ const ProfileScreen = () => {
             fontSize: 16,
         },
         icon: {
-            // Add icon styles here if necessary
+            color: Colors[colorScheme ?? 'light'].tabTopColor,
         },
     });
 

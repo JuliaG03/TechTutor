@@ -14,7 +14,7 @@ const CustomButton = ({ text, onPress, type = "Primary", bgColor, fontColor, ico
             paddingVertical: 12,
             paddingHorizontal: 20,
             marginVertical: 10,
-            borderRadius: 8,
+            borderRadius: 10,
             justifyContent: 'center',
             alignItems: 'center',
             shadowColor: '#000',
@@ -24,14 +24,14 @@ const CustomButton = ({ text, onPress, type = "Primary", bgColor, fontColor, ico
             elevation: 3,
         },
         containerPrimary: {
-            borderWidth: 2,
+            borderWidth: 0,
             backgroundColor: Colors[colorScheme ?? 'light'].buttonBackground,
-            borderColor: Colors[colorScheme ?? 'light'].borderButton,
+
         },
         containerSecondary: {
-            borderWidth: 2,
+            borderWidth: 0,
             backgroundColor: Colors[colorScheme ?? 'light'].borderButton,
-            borderColor: Colors[colorScheme ?? 'light'].buttonBackground,
+
         },
         containerTertiary: {},
         text: {
@@ -47,6 +47,7 @@ const CustomButton = ({ text, onPress, type = "Primary", bgColor, fontColor, ico
         },
         icon: {
             marginRight: 10,
+            color: Colors[colorScheme ?? 'light'].textC,
         }
     });
 
