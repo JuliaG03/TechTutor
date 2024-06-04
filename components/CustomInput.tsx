@@ -10,17 +10,25 @@ const CustomInput = ({ value, setValue, placeholder, secureTextEntry, icon, keyb
 
     const styles = StyleSheet.create({
         container: {
-            width: 240,
+            width: 300,
             backgroundColor: Colors[colorScheme ?? 'light'].backgroundInput,
             borderColor: '#22252A',
             borderWidth: 1,
-            borderRadius: 5,
-            paddingHorizontal: 10,
-            marginTop: 5, 
-            flexDirection: 'row'
+            borderRadius: 10,
+            paddingHorizontal: 3,
+            paddingVertical: 5,
+            marginTop: 19, 
+            flexDirection: 'row',
+            alignItems: 'center',
         },
         input: {
+            flex: 1,
+            marginLeft: 10,
             width: '100%',
+            color: '#5BC8A3' || Colors[colorScheme ?? 'light'].textC,
+        },
+        icon: {
+            marginRight: 10,
         }
     });
 

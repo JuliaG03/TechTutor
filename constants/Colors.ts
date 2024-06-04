@@ -24,7 +24,7 @@ export const Colors = {
         text: '#B0BEC5',
         textColor: appGreen,
         textColorPrimary: appGreen,
-        textC: '#FFFFFF',
+        textC: '#5AC8A3',
         green: appGreen,
         purple: appPurple,
         green2: appPurple,
@@ -46,7 +46,7 @@ export const Colors = {
         textInputPlaceholder: '#78909C',
         textColor: '#B0BEC5',
         textColorPrimary: appGreen,
-        textC: appGreen,
+        textC: '#5AC8A3',
         green: appGreen,
         purple: appPurple,
         green2: appPurple, //purple arata mai put togheter pt text
