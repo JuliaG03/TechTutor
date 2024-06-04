@@ -23,15 +23,31 @@ const SignUp = () => {
     const [loading, setLoading] = useState(false);
 
     async function signUpWithEmail() {
-       setLoading(true);
-       const {error} = await supabase.auth.signUp({ phone, email, password});
-        setLoading(false);
-        if (error) Alert.alert(error.message);
-        else {
-            navigation.navigate("SignIn");
+        setLoading(true);
+
+        const { data, error } = await supabase.auth.signUp({ phone, email, password });
+
+        if (error) {
+            console.error('Error signing up:', error.message);
+            Alert.alert('Error signing up:', error.message);
+            setLoading(false);
+            return;
         }
-       
+        const user = data?.user;
+
+        await supabase.from('users').insert({
+            id: user?.id,
+            email: user?.email,
+            phone: phone,
+            username: username,
+            score: 0
+        });
+        Alert.alert('Account created. Now please sign in!');
+        setLoading(false);
+        navigation.navigate('SignIn');
     }
+
+
     const signUpPress = () => {
         console.warn("Sign Up");
     }

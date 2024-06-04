@@ -20,13 +20,40 @@ const SignIn = () => {
 
     const [loading, setLoading] = useState(false);
 
-    async function signInWithEmail() {
+    const signInWithEmail = async () => {
         setLoading(true);
-        const {error} = await supabase.auth.signInWithPassword({  email, password});
-        if (error) Alert.alert(error.message);
-        else navigation.navigate('MainMenu');
-        setLoading(false); 
-    }
+
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+        if (error || !data) {
+            console.error('Other error:', error?.message);
+            //Alert.alert('Error signing in:', error?.message);
+            setLoading(false);
+            return;
+        }
+
+        const user = data.user;
+        const { data: userData, error: fetchError } = await supabase
+            .from('users')
+            .select('*')
+            .eq('id', user?.id);
+
+        if (fetchError) {
+            throw fetchError;
+        }
+
+        if (!userData || userData.length === 0) {
+            await supabase.from('users').insert({
+                id: user?.id,
+                email: user?.email,
+                phone: user?.phone,
+                username: username,
+                score: 0
+            });
+        }
+        navigation.navigate('MainMenu');
+
+        setLoading(false);
+    };
 
     const forgotPasswordPress = () => {
         //console.warn("Forgot password");
