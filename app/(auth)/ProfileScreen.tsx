@@ -25,10 +25,14 @@ const ProfileScreen = () => {
         container: {
             flex: 1,
             backgroundColor: Colors[colorScheme ?? 'light'].background,
+            paddingHorizontal: 20,
+            paddingTop: 20,
         },
         userInfoSection: {
-            paddingHorizontal: 20,
-            marginTop: 20,
+            marginBottom: 25,
+            backgroundColor: Colors[colorScheme ?? 'light'].backgroundInput,
+            borderRadius: 5,
+            padding: 20,
         },
         row: {
             flexDirection: 'row',
@@ -49,12 +53,22 @@ const ProfileScreen = () => {
         },
         menuWrapper: {
             marginTop: 20,
-            paddingHorizontal: 20,
-            paddingRight:20
-
         },
         menuItem: {
             marginBottom: 10,
+            backgroundColor: Colors[colorScheme ?? 'light'].backgroundInput,
+            borderRadius: 5,
+            padding: 10,
+            flexDirection: 'row',
+            alignItems: 'center',
+        },
+        menuItemText: {
+            color: Colors[colorScheme ?? 'light'].purple,
+            fontSize: 14,
+            marginLeft: 10,
+        },
+        icon: {
+            color: Colors[colorScheme ?? 'light'].tabTopColor,
         },
         title: {
             color: Colors[colorScheme ?? 'light'].tint,
@@ -68,9 +82,6 @@ const ProfileScreen = () => {
         text: {
             color: Colors[colorScheme ?? 'light'].green2,
             fontSize: 16,
-        },
-        icon: {
-            color: Colors[colorScheme ?? 'light'].tabTopColor,
         },
     });
 
@@ -116,34 +127,22 @@ const ProfileScreen = () => {
             </View>
 
             <View style={styles.menuWrapper}>
-                <CustomButton
-                    text="Share"
-                    onPress={() => { }}
-                    type="Tertiary"
-                    icon="share-variant"
-                    style={styles.menuItem}
-                />
-                <CustomButton
-                    text="Request lives"
-                    onPress={() => { }}
-                    type="Tertiary"
-                    icon="heart"
-                    style={styles.menuItem}
-                />
-                <CustomButton
-                    text="Support"
-                    onPress={() => { }}
-                    type="Tertiary"
-                    icon="account-check-outline"
-                    style={styles.menuItem}
-                />
-                <CustomButton
-                    text="Settings"
-                    onPress={onSettingsPress}
-                    type="Tertiary"
-                    icon="cog"
-                    style={styles.menuItem}
-                />
+                <TouchableOpacity onPress={() => { }} style={styles.menuItem}>
+                    <Icon name="share-variant" size={20} style={styles.icon} />
+                    <Text style={styles.menuItemText}>Share</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => { }} style={styles.menuItem}>
+                    <Icon name="heart" size={20} style={styles.icon} />
+                    <Text style={styles.menuItemText}>Request lives</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => { }} style={styles.menuItem}>
+                    <Icon name="account-check-outline" size={20} style={styles.icon} />
+                    <Text style={styles.menuItemText}>Support</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={onSettingsPress} style={styles.menuItem}>
+                    <Icon name="cog" size={20} style={styles.icon} />
+                    <Text style={styles.menuItemText}>Settings</Text>
+                </TouchableOpacity>
             </View>
         </SafeAreaView>
     );
