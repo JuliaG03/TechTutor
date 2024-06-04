@@ -19,6 +19,9 @@ import AuthProvider from '@/providers/AuthProvider';
 import MainMenu from '@/components/MainMenu';
 import Support from '@/app/(tabs)/support';
 import LeaderBoard from '@/app/(tabs)/leaderboard';
+import Notifications from '@/app/(tabs)/notifications';
+import Privacy from '@/app/(tabs)/privacy';
+import About from '@/app/(tabs)/about';
 
 const Stack = createStackNavigator();
 
@@ -43,6 +46,9 @@ const AppStackNavigation = () => {
                     <Stack.Screen name="Settings" component={Settings} />
                     <Stack.Screen name="LeaderBoard" component={LeaderBoard} />
                     <Stack.Screen name="Support" component={Support} />
+                    <Stack.Screen name="Notifications" component={Notifications} />
+                    <Stack.Screen name="Privacy" component={Privacy} />
+                    <Stack.Screen name="About" component={About} />
                 </Stack.Navigator>
             </NavigationContainer>
         </AuthProvider>

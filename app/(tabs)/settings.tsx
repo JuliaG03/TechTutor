@@ -1,20 +1,15 @@
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { View, Text, Animated, StyleSheet, Image, TextInput, ImageBackground, Platform, Modal, PanResponder } from 'react-native'
-import React, { useRef, useLayoutEffect } from 'react';
-import CustomInput from '@/components/CustomInput';
-import stylesView from '@/components/Styles';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Title, Caption } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { Avatar, Title, Caption, TouchableRipple } from 'react-native-paper';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import images from '../../constants/images';
-import CustomButton from '@/components/CustomButton';
-import { useNavigation } from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useState } from 'react';
 
 const Settings = () => {
     const colorScheme = useColorScheme();
+    const navigation = useNavigation();
 
     const styles = StyleSheet.create({
         container: {
@@ -65,17 +60,25 @@ const Settings = () => {
             fontSize: 25,
             marginBottom: 10,
         },
-
     });
 
     const settingsOptions = [
-        { name: 'Edit Profile', icon: 'account-edit' },
-        { name: 'Change Password', icon: 'lock' },
-        { name: 'Notifications', icon: 'bell' },
-        { name: 'Privacy', icon: 'lock-outline' },
-        { name: 'About', icon: 'information' },
-        { name: 'Logout', icon: 'logout' },
+        { name: 'Edit Profile', icon: 'account-edit', screen: 'EditProfileScreen' },
+        { name: 'Support', icon: 'account-check-outline', screen: 'Support' },
+        { name: 'Notifications', icon: 'bell', screen: 'Notifications' },
+        { name: 'Privacy', icon: 'lock-outline', screen: 'Privacy' },
+        { name: 'About', icon: 'information', screen: 'About' },
+        { name: 'Logout', icon: 'logout', screen: 'Logout' },
     ];
+
+    const handleMenuPress = (screen) => {
+        if (screen === 'Logout') {
+            // Handle logout functionality here
+            // For example, you can clear the user session and navigate to the login screen
+        } else {
+            navigation.navigate(screen);
+        }
+    };
 
     return (
         <SafeAreaView style={styles.container}>
@@ -85,7 +88,11 @@ const Settings = () => {
             </View>
             <View style={styles.menuWrapper}>
                 {settingsOptions.map((option, index) => (
-                    <TouchableOpacity key={index} style={styles.menuItem}>
+                    <TouchableOpacity
+                        key={index}
+                        style={styles.menuItem}
+                        onPress={() => handleMenuPress(option.screen)}
+                    >
                         <Text style={styles.menuItemText}>{option.name}</Text>
                         <Icon name={option.icon} size={27} color={Colors[colorScheme ?? 'light'].tabTopColor} />
                     </TouchableOpacity>
