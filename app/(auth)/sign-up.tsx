@@ -16,6 +16,8 @@ const SignUp = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [firstname, setFirstname] = useState('');
     const [phone, setPhone] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
     const navigation = useNavigation();
@@ -23,6 +25,15 @@ const SignUp = () => {
     const [loading, setLoading] = useState(false);
 
     async function signUpWithEmail() {
+        if (password !== repeatPassword) {
+            Alert.alert('Error', 'Passwords do not match');
+            return;
+        }
+
+        if (!email || !password || !username || !lastname || !firstname || !phone) {
+            Alert.alert('Error', 'Please fill all fields');
+            return;
+        }
         setLoading(true);
 
         const { data, error } = await supabase.auth.signUp({ phone, email, password });
@@ -40,6 +51,8 @@ const SignUp = () => {
             email: user?.email,
             phone: phone,
             username: username,
+            lastname: lastname,
+            firstname: firstname,
             score: 0
         });
         Alert.alert('Account created. Now please sign in!');
@@ -75,12 +88,23 @@ const SignUp = () => {
         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={generatedStyles.root}>
                 <SafeAreaView style={[generatedStyles.bigView, { backgroundColor: Colors[colorScheme ?? 'light'].background }]}>
-                    <AppLogo/>
-                    <Text style={[generatedStyles.title,  {color: Colors[colorScheme ?? 'light'].tint}]}>Create an account</Text>
+                    <Text style={[generatedStyles.title,  {color: Colors[colorScheme ?? 'light'].tint, marginTop: 20}]}>Create an account</Text>
                     <CustomInput
                         placeholder="username"
                         value={username}
                         setValue={setUsername}
+                        secureTextEntry={false}
+                    />
+                    <CustomInput
+                        placeholder="lastname"
+                        value={lastname}
+                        setValue={setLastname}
+                        secureTextEntry={false}
+                    />
+                     <CustomInput
+                        placeholder="firstname"
+                        value={firstname}
+                        setValue={setFirstname}
                         secureTextEntry={false}
                     />
                     <CustomInput

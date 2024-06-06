@@ -1,18 +1,21 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { Avatar, Title, Caption } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import images from '../../constants/images';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import CustomButton from '@/components/CustomButton';
 import { useNavigation } from '@react-navigation/native';
+import { supabase } from '@/lib/supabase';
+import {useAuth} from '@/providers/AuthProvider';
+
 
 const ProfileScreen = () => {
     const colorScheme = useColorScheme();
     const navigation = useNavigation();
-
+  
+    const { userData } = useAuth();
     const onEditPress = () => {
         navigation.navigate('EditProfileScreen');
     };
@@ -23,7 +26,6 @@ const ProfileScreen = () => {
     const onSupportPress = () => {
         navigation.navigate('Support');
     };
-
 
     const styles = StyleSheet.create({
         container: {
@@ -105,22 +107,22 @@ const ProfileScreen = () => {
                 <View style={styles.row}>
                     <Avatar.Image source={images.profile} />
                     <View style={{ marginLeft: 15 }}>
-                        <Title style={styles.title}>Maria Popescu</Title>
-                        <Caption style={styles.caption}>@maria_p</Caption>
+                        <Title style={styles.title}>{userData?.firstname} {userData?.lastname} </Title>
+                        <Caption style={styles.caption}>@{userData?.username}</Caption>
                     </View>
                 </View>
                 <View style={styles.row}>
                     <Icon name="phone" size={20} style={styles.icon} />
-                    <Text style={styles.text}>+40 07234443</Text>
+                    <Text style={styles.text}>{userData?.phone}</Text>
                 </View>
                 <View style={styles.row}>
                     <Icon name="email" size={20} style={styles.icon} />
-                    <Text style={styles.text}>MariaPopescu@gmail.com</Text>
+                    <Text style={styles.text}> {userData?.email}</Text>
                 </View>
 
                 <View style={styles.infoBoxWrapper}>
                     <View style={styles.infoBox}>
-                        <Title style={styles.title}>12000</Title>
+                        <Title style={styles.title}>{userData?.score}</Title>
                         <Caption style={styles.caption}>Score</Caption>
                     </View>
                     <View style={styles.infoBox}>

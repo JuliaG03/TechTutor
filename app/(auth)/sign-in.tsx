@@ -1,5 +1,5 @@
 import {Alert, View, Text, StyleSheet, Image, SafeAreaView, useWindowDimensions, ScrollView } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import CustomInput from '@/components/CustomInput';
@@ -17,8 +17,9 @@ const SignIn = () => {
     const [email, setEmail] = useState('');
     const { height } = useWindowDimensions();
     const navigation = useNavigation();
-
+    const { session} = useAuth();
     const [loading, setLoading] = useState(false);
+
 
     const signInWithEmail = async () => {
         setLoading(true);
@@ -40,18 +41,9 @@ const SignIn = () => {
         if (fetchError) {
             throw fetchError;
         }
-
-        if (!userData || userData.length === 0) {
-            await supabase.from('users').insert({
-                id: user?.id,
-                email: user?.email,
-                phone: user?.phone,
-                username: username,
-                score: 0
-            });
-        }
+        //setUserData(userData); 
+        
         navigation.navigate('MainMenu');
-
         setLoading(false);
     };
 

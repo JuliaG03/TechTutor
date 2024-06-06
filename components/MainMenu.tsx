@@ -42,7 +42,7 @@ const MainMenu = () => {
 
     const signOutOnPress = () => {
         supabase.auth.signOut();
-        //navigation.navigate('SignIn');
+        navigation.navigate('SignIn');
     }
 
     const colorScheme = useColorScheme();
