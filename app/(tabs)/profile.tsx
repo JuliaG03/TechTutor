@@ -6,7 +6,7 @@ import { Avatar, Title, Caption } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import images from '../../constants/images';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { supabase } from '@/lib/supabase';
 import {useAuth} from '@/providers/AuthProvider';
 
@@ -14,18 +14,43 @@ import {useAuth} from '@/providers/AuthProvider';
 const ProfileScreen = () => {
     const colorScheme = useColorScheme();
     const navigation = useNavigation();
-  
+    const route = useRoute();
     const { userData } = useAuth();
+    const isCurrentUser = userData?.id === route.params?.userId;
+    const [profileData, setProfileData] = useState(null);
+
     const onEditPress = () => {
         navigation.navigate('EditProfileScreen');
     };
+    
+    useEffect(() => {
+        
+        if (isCurrentUser) {
+            setProfileData(userData);
+        } else {
+            fetchUserProfileData(route.params?.userId);
+        }
+    }, [route?.params.userId]);
 
+    const fetchUserProfileData = async (userId) => {
+        try {
+            const { data, error } = await supabase.from('users').select('*').eq('id', userId).single();
+            if (error) {
+                throw error;
+            }
+            setProfileData(data);
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+        }
+    };
+    
     const onSettingsPress = () => {
         navigation.navigate('Settings');
     };
     const onSupportPress = () => {
         navigation.navigate('Support');
     };
+
 
     const styles = StyleSheet.create({
         container: {
@@ -92,13 +117,15 @@ const ProfileScreen = () => {
     });
 
     React.useLayoutEffect(() => {
-        navigation.setOptions({
-            headerRight: () => (
-                <TouchableOpacity onPress={onEditPress}>
-                    <Icon name="pencil" size={25} style={{ marginRight: 20, color: '#2ebf91' }} />
-                </TouchableOpacity>
-            ),
-        });
+        if (isCurrentUser) {
+            navigation.setOptions({
+                headerRight: () => (
+                    <TouchableOpacity onPress={onEditPress}>
+                        <Icon name="pencil" size={25} style={{ marginRight: 20, color: '#2ebf91' }} />
+                    </TouchableOpacity>
+                ),
+            });
+        }
     }, [navigation]);
 
     return (
@@ -107,26 +134,26 @@ const ProfileScreen = () => {
                 <View style={styles.row}>
                     <Avatar.Image source={images.profile} />
                     <View style={{ marginLeft: 15 }}>
-                        <Title style={styles.title}>{userData?.firstname} {userData?.lastname} </Title>
-                        <Caption style={styles.caption}>@{userData?.username}</Caption>
+                        <Title style={styles.title}>{profileData?.firstname} {profileData?.lastname} </Title>
+                        <Caption style={styles.caption}>@{profileData?.username}</Caption>
                     </View>
                 </View>
                 <View style={styles.row}>
                     <Icon name="phone" size={20} style={styles.icon} />
-                    <Text style={styles.text}>{userData?.phone}</Text>
+                    <Text style={styles.text}>{profileData?.phone}</Text>
                 </View>
                 <View style={styles.row}>
                     <Icon name="email" size={20} style={styles.icon} />
-                    <Text style={styles.text}> {userData?.email}</Text>
+                    <Text style={styles.text}> {profileData?.email}</Text>
                 </View>
 
                 <View style={styles.infoBoxWrapper}>
                     <View style={styles.infoBox}>
-                        <Title style={styles.title}>{userData?.score}</Title>
+                        <Title style={styles.title}>{profileData?.score}</Title>
                         <Caption style={styles.caption}>Score</Caption>
                     </View>
                     <View style={styles.infoBox}>
-                        <Title style={styles.title}>5</Title>
+                        <Title style={styles.title}>{profileData?.lives}</Title>
                         <Caption style={styles.caption}>Lives</Caption>
                     </View>
                 </View>
@@ -137,15 +164,15 @@ const ProfileScreen = () => {
                     <Icon name="share-variant" size={20} style={styles.icon} />
                     <Text style={styles.menuItemText}>Share</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => { }} style={styles.menuItem}>
+                <TouchableOpacity onPress={() => { }} style={isCurrentUser ? styles.menuItem : { display: 'none' }}>
                     <Icon name="heart" size={20} style={styles.icon} />
                     <Text style={styles.menuItemText}>Request lives</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={(onSupportPress) } style={styles.menuItem}>
+                <TouchableOpacity onPress={(onSupportPress)} style={isCurrentUser ? styles.menuItem : { display: 'none' }}>
                     <Icon name="account-check-outline" size={20} style={styles.icon} />
                     <Text style={styles.menuItemText}>Support</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={onSettingsPress} style={styles.menuItem}>
+                <TouchableOpacity onPress={onSettingsPress} style={isCurrentUser ? styles.menuItem : { display: 'none' }}>
                     <Icon name="cog" size={20} style={styles.icon} />
                     <Text style={styles.menuItemText}>Settings</Text>
                 </TouchableOpacity>

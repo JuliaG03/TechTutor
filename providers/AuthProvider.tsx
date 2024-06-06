@@ -11,20 +11,25 @@ interface UserData {
     lastname?: string;
     firstname?: string;
     score?: Int16Array;
+    lives?: Int16Array;
 }
 
 type AuthData = {
     session: Session | null;
     loading: boolean;
     userData: UserData | null;
-   
+    updateUser: (newUserData: Partial<UserData>) => void;
+    setSession: (session: Session | null) => void;
+    updateUserData: (newUserData: Partial<UserData>) => void;
 };
 
 const AuthContext = createContext<AuthData>({
     session: null,
     loading: true,
     userData: null,
-  
+    updateUser: () => { },
+    setSession: () => { },
+    updateUserData: () => { },
 });
 
 export default function AuthProvider({ children }: PropsWithChildren) {
@@ -43,7 +48,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                 const { id, email = '' } = session.user;
                 const { data: userData, error: userError } = await supabase
                     .from('users')
-                    .select('username, firstname, lastname, phone, score')
+                    .select('username, firstname, lastname, phone, score, lives')
                     .eq('id', id)
                     .single();
                     
@@ -71,13 +76,36 @@ export default function AuthProvider({ children }: PropsWithChildren) {
        
     }, []);
 
-    // const signOut = async () => {
-    //     await supabase.auth.signOut();
-    //     setSession(null);
-    //     setUserData(null);
-    // };
+   const updateUser = async (newUserData: Partial<UserData>) => {
+        if (userData) {
+            const updatedUserData = { ...userData, ...newUserData };
+            setUserData(updatedUserData);
 
-    return <AuthContext.Provider value={{ session, loading, userData }}>{children}</AuthContext.Provider>;
+            try {
+                const { error } = await supabase
+                    .from('users')
+                    .update(updatedUserData)
+                    .eq('id', userData.id);
+
+                if (error) {
+                    throw error;
+                }
+            } catch (error) {
+                console.error('Error updating user data');
+            }
+         
+        }
+
+
+    };
+
+    const updateUserData = async (newUserData: Partial<UserData>) => {
+        if (userData) {
+            const updatedUserData = { ...userData, ...newUserData };
+            setUserData(updatedUserData);
+        }
+    };
+    return <AuthContext.Provider value={{ session, loading, userData, updateUser, setSession, updateUserData }}>{children}</AuthContext.Provider>;
 }
 
 export const useAuth = () => useContext(AuthContext);

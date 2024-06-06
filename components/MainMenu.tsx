@@ -11,7 +11,7 @@ import AppLogo from '@/components/AppLogo';
 
 const MainMenu = () => {
     const navigation = useNavigation();
-    const { session, loading } = useAuth();
+    const { session, loading, userData } = useAuth();
     //console.log(session);
     if (loading) {
         return <ActivityIndicator/>
@@ -21,7 +21,7 @@ const MainMenu = () => {
     }
 
     const profileOnPress = () => {
-        navigation.navigate('ProfileScreen');
+        navigation.navigate('ProfileScreen', {userId: userData?.id});
     }
 
     const settingsOnPress= () => {

@@ -6,8 +6,10 @@ import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { useNavigation } from '@react-navigation/native';
 import BackNavigationHeader from '@/components/BackNavigationHeader';
+import { useAuth } from '@/providers/AuthProvider'; 
 
 interface User {
+    id: string;
     email: string;
     username: string;
     score: Int16Array;
@@ -17,7 +19,7 @@ const Leaderboard = () => {
     const [users, setUsers] = useState<User[]>([]);
     const colorScheme = useColorScheme();
     const generatedStyles = stylesView();
-
+    const { userData } = useAuth();
     const navigation = useNavigation();
 
 
@@ -65,12 +67,26 @@ const Leaderboard = () => {
             backgroundColor: Colors[colorScheme ?? 'light'].tint,
 
         },
+        currentBox: {
+            borderWidth: 3,
+            margin: 10,
+            width: '80%',
+            borderStyle: 'dotted',
+            flexDirection: 'row',
+            padding: 2,
+            backgroundColor: Colors[colorScheme ?? 'light'].green2,
+            borderColor: 'red'
+        },
         scoreBox: {
             flexDirection: 'row',
             marginLeft: '55%'
         }
 
     });
+
+    const handleUserPress = (userId: string) => {
+        navigation.navigate('ProfileScreen', { userId }); 
+    };
 
 
     return (
@@ -80,14 +96,18 @@ const Leaderboard = () => {
                 <Text style={[generatedStyles.title, { color: Colors[colorScheme ?? 'light'].tint }]}>Leaderboard</Text>
                 <View style={styles.container}>
                     {users.map((user, index) => (
-                        <View style={styles.userBox}>
+                        <TouchableOpacity
+                            key={user.id}
+                            onPress={() => handleUserPress(user.id)}
+                            style={userData?.id === user.id ? styles.currentBox : styles.userBox}
+                        >
                             <Text>@</Text>
                             <Text key={index} style={generatedStyles.subtitle}>{user.username}</Text>
                             <View style={styles.scoreBox}>
                                 <Text key={index} style={generatedStyles.subtitle}>{user.score}</Text>
                                 <Text> points</Text>
                             </View>
-                        </View>
+                        </TouchableOpacity>
                     ))}
                 </View>
             </SafeAreaView>

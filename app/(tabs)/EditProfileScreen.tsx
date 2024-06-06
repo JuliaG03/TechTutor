@@ -1,5 +1,5 @@
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {View, Text, Animated, StyleSheet, Image,TextInput, ImageBackground, Platform, Modal, PanResponder} from 'react-native'
+import {Alert, View, Text, Animated, StyleSheet, Image,TextInput, ImageBackground, Platform, Modal, PanResponder} from 'react-native'
 import React, { useRef, useLayoutEffect } from 'react';
 import CustomInput from '@/components/CustomInput';
 import stylesView from '@/components/Styles';
@@ -12,14 +12,17 @@ import CustomButton from '@/components/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useState } from 'react';
-
+import { useAuth } from '@/providers/AuthProvider';
+import Toast from 'react-native-toast-message';
 
 const EditProfileScreen = () => {
  // const fall = new Animated.Value(1);
 //   const bs = useRef(null);
+  const { userData, updateUser } = useAuth();
+  const [username, setUsername] = useState(userData?.username || '');
+  const [phone, setPhone] = useState(userData?.phone || '');
 
   const [isModalVisible, setIsModalVisible] = useState(false);
-
   const toggleModal = () => {
       setIsModalVisible(!isModalVisible);
   };
@@ -30,10 +33,9 @@ const EditProfileScreen = () => {
   const navigation = useNavigation();
 
 
-
   const onBackPress = () => {
     navigation.navigate('ProfileScreen');
-  };
+  };    
 
   const onTakePhotoPress = () => {
     navigation.navigate('ProfileScreen');
@@ -46,9 +48,10 @@ const EditProfileScreen = () => {
   const forgotPasswordPress = () => {
     navigation.navigate('ForgotPassword');
 }
-  const onSubmitPress = () => {
-   // navigation.navigate('ProfileScreen');
-   navigation.navigate('ForgotPassword');
+   const onSubmitPress = () => {
+       updateUser({ username, phone });
+       //Alert.alert('Changes made succsefully');
+      // navigation.navigate('ForgotPassword');
   };
 
   const styles = StyleSheet.create({
@@ -149,28 +152,23 @@ const EditProfileScreen = () => {
                     
                 <View style={styles.options}>
                     <CustomInput
-                        placeholder="username"
-                        // value={username}
-                        // setValue={setUsername}
+                       // placeholder={userData?.username }
+                        value={username}
+                        setValue={setUsername}
                         secureTextEntry={false}
+                       
                         icon="account"
                     />
                     <CustomInput
-                        placeholder="phone number"
-                        // value={username}
-                        // setValue={setUsername}
+                        //placeholder={userData?.phone }
+                        value={phone}
+                        setValue={setPhone}
                         secureTextEntry={false}
+                        
                         icon="phone"
                         keyboardType='number-pad'
                     />
-                    <CustomInput
-                        placeholder="email"
-                        // value={username}
-                        // setValue={setUsername}
-                        secureTextEntry={false}
-                        icon="email"
-                        keyboardType='email-address'
-                    />
+                 
                     <CustomButton text="Submit" onPress={onSubmitPress } type="primary" />
                     <CustomButton
                         text="Forgot password?"

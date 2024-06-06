@@ -9,6 +9,7 @@ const stylesView = () => {
     root: {
       alignItems: 'center',
       paddingBottom: '30%',
+      minHeight: 900,
       flex: 1,
       backgroundColor: Colors[colorScheme ?? 'light'].background
     },

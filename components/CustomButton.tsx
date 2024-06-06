@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Text, Pressable } from 'react-native';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -7,7 +7,15 @@ import stylesView from '@/components/Styles';
 
 const CustomButton = ({ text, onPress, type = "Primary", bgColor, fontColor, icon, buttonWidth = 250, disabled }) => {
     const colorScheme = useColorScheme();
+    const [isPressed, setIsPressed] = useState(false);
 
+    const handlePressIn = () => {
+        setIsPressed(true);
+    };
+
+    const handlePressOut = () => {
+        setIsPressed(false);
+    };
     const styles = StyleSheet.create({
         container: {
             width: buttonWidth,
@@ -22,6 +30,7 @@ const CustomButton = ({ text, onPress, type = "Primary", bgColor, fontColor, ico
             shadowOpacity: 0.2,
             shadowRadius: 3,
             elevation: 3,
+            opacity: isPressed ? 0.6 : 1
         },
         containerPrimary: {
             borderWidth: 0,
@@ -72,6 +81,8 @@ const CustomButton = ({ text, onPress, type = "Primary", bgColor, fontColor, ico
         <Pressable
             disabled={disabled}
             onPress={onPress}
+            onPressIn={handlePressIn} 
+            onPressOut={handlePressOut} 
             style={[
                 containerStyle,
                 bgColor ? { backgroundColor: bgColor } : {},

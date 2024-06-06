@@ -17,22 +17,22 @@ const SignIn = () => {
     const [email, setEmail] = useState('');
     const { height } = useWindowDimensions();
     const navigation = useNavigation();
-    const { session} = useAuth();
+    const { session,updateUserData, setSession } = useAuth();
     const [loading, setLoading] = useState(false);
 
 
     const signInWithEmail = async () => {
         setLoading(true);
 
-        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error || !data) {
+        const { data: newData, error } = await supabase.auth.signInWithPassword({ email, password });
+        if (error || !newData) {
             console.error('Other error:', error?.message);
             //Alert.alert('Error signing in:', error?.message);
             setLoading(false);
             return;
         }
 
-        const user = data.user;
+        const user = newData.session.user;
         const { data: userData, error: fetchError } = await supabase
             .from('users')
             .select('*')
@@ -41,9 +41,12 @@ const SignIn = () => {
         if (fetchError) {
             throw fetchError;
         }
-        //setUserData(userData); 
-        
-        navigation.navigate('MainMenu');
+        if (userData) {
+           //updateUserData({email,...userData});
+            //setSession(newData.session);
+            //updateUserData({ id: user.id, email: user.email, ...userData });
+            navigation.navigate('MainMenu');
+        }
         setLoading(false);
     };
 
