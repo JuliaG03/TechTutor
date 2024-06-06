@@ -42,9 +42,7 @@ const SignIn = () => {
             throw fetchError;
         }
         if (userData) {
-           //updateUserData({email,...userData});
-            //setSession(newData.session);
-            //updateUserData({ id: user.id, email: user.email, ...userData });
+          // setSession(newData.session);
             navigation.navigate('MainMenu');
         }
         setLoading(false);

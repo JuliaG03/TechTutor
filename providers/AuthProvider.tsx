@@ -43,7 +43,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
               data: { session },
             } = await supabase.auth.getSession();
       
-            setSession(session);
+            //setSession(session);
             if (session) {
                 const { id, email = '' } = session.user;
                 const { data: userData, error: userError } = await supabase
@@ -70,11 +70,18 @@ export default function AuthProvider({ children }: PropsWithChildren) {
 
         fetchSession();
 
-        supabase.auth.onAuthStateChange((_event, session) => {
+        const authListener = supabase.auth.onAuthStateChange((_event, session) => {
             setSession(session);
         });
        
-    }, []);
+    }, [session]);
+
+    const updateUserData = async (newUserData: Partial<UserData>) => {
+        if (userData) {
+            const updatedUserData = { ...userData, ...newUserData };
+            setUserData(updatedUserData);
+        }
+    };
 
    const updateUser = async (newUserData: Partial<UserData>) => {
         if (userData) {
@@ -99,12 +106,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
 
     };
 
-    const updateUserData = async (newUserData: Partial<UserData>) => {
-        if (userData) {
-            const updatedUserData = { ...userData, ...newUserData };
-            setUserData(updatedUserData);
-        }
-    };
+   
     return <AuthContext.Provider value={{ session, loading, userData, updateUser, setSession, updateUserData }}>{children}</AuthContext.Provider>;
 }
 
