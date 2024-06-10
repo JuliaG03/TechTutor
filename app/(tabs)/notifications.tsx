@@ -3,13 +3,13 @@ import { View, Text, StyleSheet, Switch } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-
+//main component function
 const Notifications= () => {
     const colorScheme = useColorScheme();
     const [isEnabled, setIsEnabled] = useState(false);
 
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-
+    //styles
     const styles = StyleSheet.create({
         container: {
             flex: 1,

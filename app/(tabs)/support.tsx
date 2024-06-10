@@ -9,7 +9,7 @@ import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import moment from 'moment';
-
+//main component function
 const Support = () => {
     const colorScheme = useColorScheme();
     const [messages, setMessages] = useState([
@@ -18,27 +18,27 @@ const Support = () => {
     const [input, setInput] = useState('');
     const [typing, setTyping] = useState(false);
     const flatListRef = useRef(null);
-
+    //function to handle the send button press
     const handleSend = () => {
         if (input.trim().length === 0) return;
-
+        //create a new message object
         const newMessage = { id: Date.now().toString(), text: input, sender: 'user', timestamp: new Date() };
         setMessages((prevMessages) => [...prevMessages, newMessage]);
         setInput('');
-
+        //simulate a typing indicator
         setTyping(true);
-
+        //simulate a reply from the support team
         setTimeout(() => {
             setTyping(false);
             const autoReply = { id: Date.now().toString(), text: 'Thank you for reaching out! Our support team will contact you shortly.', sender: 'support', timestamp: new Date() };
             setMessages((prevMessages) => [...prevMessages, autoReply]);
         }, 3000);
     };
-
+    //function to format the timestamp
     const formatTimestamp = (timestamp) => {
         return moment(timestamp).format('D MMM, h:mm A');
     };
-
+    //styles
     const styles = StyleSheet.create({
         container: {
             flex: 1,
@@ -138,7 +138,7 @@ const Support = () => {
             marginLeft: 10,
         },
     });
-
+    //scroll to the end of the list when a new message is added
     useEffect(() => {
         if (flatListRef.current) {
             flatListRef.current.scrollToEnd({ animated: true });

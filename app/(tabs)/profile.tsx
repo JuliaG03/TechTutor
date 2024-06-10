@@ -22,18 +22,18 @@ const ProfileScreen = () => {
     const onEditPress = () => {
         navigation.navigate('EditProfileScreen');
     };
-    
+    //function to fetch the user profile data
     useEffect(() => {
-        
-        if (isCurrentUser) {
+        //if the user is the current user
+        if (isCurrentUser) {//set the profile data to the user data
             setProfileData(userData);
         } else {
             fetchUserProfileData(route.params?.userId);
         }
     }, [route?.params.userId]);
-
+    //function to fetch the user profile data
     const fetchUserProfileData = async (userId) => {
-        try {
+        try {//fetch the user data from the database
             const { data, error } = await supabase.from('users').select('*').eq('id', userId).single();
             if (error) {
                 throw error;
@@ -43,15 +43,16 @@ const ProfileScreen = () => {
             console.error('Error fetching user data:', error);
         }
     };
-    
+    //function to handle the settings button press
     const onSettingsPress = () => {
         navigation.navigate('Settings');
     };
+    //function to handle the support button press
     const onSupportPress = () => {
         navigation.navigate('Support');
     };
 
-
+    //styles
     const styles = StyleSheet.create({
         container: {
             flex: 1,

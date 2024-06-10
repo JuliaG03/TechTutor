@@ -8,7 +8,7 @@ const About = () => {
     const colorScheme = useColorScheme();
     const [activeSection, setActiveSection] = useState('about');
     const [fadeAnim] = useState(new Animated.Value(0));
-
+    //styles
     const styles = StyleSheet.create({
         container: {
             flex: 1,
@@ -61,7 +61,7 @@ const About = () => {
             marginBottom: 5,
         },
     });
-
+    //function to handle the section change
     const handleSectionChange = (section) => {
         setActiveSection(section);
         Animated.timing(fadeAnim, {
@@ -70,7 +70,7 @@ const About = () => {
             useNativeDriver: true,
         }).start();
     };
-
+    //returning the view
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.sectionButtons}>

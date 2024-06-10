@@ -4,7 +4,7 @@ import {useAuth} from '@/providers/AuthProvider';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { useNavigation } from '@react-navigation/native';
-
+//main component function
 const AuthLayout = () => {
   const colorScheme = useColorScheme();
   const {session} = useAuth();

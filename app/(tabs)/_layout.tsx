@@ -6,10 +6,10 @@ import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { icons } from '@/constants';
 import Header from '@/components/Header';
-
+//main component function
 const TabIcon = ({ icon, color, name, focused }) => {
   const colorScheme = useColorScheme();
-
+  //returning the view
   return (
     <View className='items-center justify-center gap-2 mt-4'>
       <Image
@@ -24,7 +24,7 @@ const TabIcon = ({ icon, color, name, focused }) => {
     </View>
   )
 }
-
+//main component function
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   const [selectedLanguage, setSelectedLanguage] = useState("Python");
