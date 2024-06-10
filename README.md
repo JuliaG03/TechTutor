@@ -51,6 +51,7 @@ The app offers a diverse range of learning paths covering programming languages,
 - As a friend, I want to be able to request a heart/life from another friend so that I can continue learning.
 
 ## UML Diagram
+
 ## Demo
 
 Insert gif or link to demo
