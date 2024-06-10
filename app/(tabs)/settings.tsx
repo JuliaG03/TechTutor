@@ -98,7 +98,7 @@ const Settings = () => {
                         <Icon name={option.icon} size={27} color={Colors[colorScheme ?? 'light'].tabTopColor} />
                     </TouchableOpacity>
                 ))}
-            </V>
+            </View>
         </SafeAreaView>
     );
 };

@@ -8,7 +8,8 @@ const About = () => {
     const colorScheme = useColorScheme();
     const [activeSection, setActiveSection] = useState('about');
     const [fadeAnim] = useState(new Animated.Value(0));
-    //styles
+
+    // Styles
     const styles = StyleSheet.create({
         container: {
             flex: 1,
@@ -35,8 +36,8 @@ const About = () => {
             marginBottom: 20,
         },
         bubble: {
-            backgroundColor: 'tabBackground', // Darker shade of grey for the bubble background
-            padding: 15,
+            backgroundColor: '#333333', // Dark grey background for the bubble
+            padding: 20,
             borderRadius: 10,
         },
         sectionTitle: {
@@ -47,9 +48,10 @@ const About = () => {
         },
         text: {
             fontSize: 16,
-            color: 'textColor', 
+            color: '#FFFFFF', // White text color
             marginBottom: 10,
             textAlign: 'justify',
+            lineHeight: 24, // Increased line height for better readability
         },
         developerList: {
             marginLeft: 20,
@@ -57,11 +59,13 @@ const About = () => {
         },
         developerItem: {
             fontSize: 16,
-            color: 'textColor', 
+            color: '#FFFFFF', // White text color
             marginBottom: 5,
+            lineHeight: 24, // Increased line height for better readability
         },
     });
-    //function to handle the section change
+
+    // Function to handle the section change
     const handleSectionChange = (section) => {
         setActiveSection(section);
         Animated.timing(fadeAnim, {
@@ -70,7 +74,8 @@ const About = () => {
             useNativeDriver: true,
         }).start();
     };
-    //returning the view
+
+    // Returning the view
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.sectionButtons}>
@@ -96,9 +101,9 @@ const About = () => {
                     ) : (
                         <>
                             <View style={styles.developerList}>
-                                <Text style={styles.developerItem}> - Julia Grasu </Text>
-                                <Text style={styles.developerItem}> - Stefania-Flavia Fota </Text>
-                                <Text style={styles.developerItem}> - Adela Petre-Soldan </Text>
+                                <Text style={styles.developerItem}>- Julia Grasu</Text>
+                                <Text style={styles.developerItem}>- Stefania-Flavia Fota</Text>
+                                <Text style={styles.developerItem}>- Adela Petre-Soldan</Text>
                             </View>
                             <Text style={styles.text}>
                                 TECHTUTOR was developed by a dedicated team of computer science enthusiasts for the Software Development Methods course at our university. Our team is committed to providing high-quality educational content and innovative learning experiences to users worldwide. We believe in the transformative power of education and technology to shape the future of learning.
