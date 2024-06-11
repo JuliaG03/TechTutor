@@ -26,7 +26,7 @@ const EditProfileScreen = () => {
   const toggleModal = () => {
       setIsModalVisible(!isModalVisible);
   };
-
+  
   const colorScheme = useColorScheme();
   const generatedStyles = stylesView(); 
 

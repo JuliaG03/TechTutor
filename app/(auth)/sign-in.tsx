@@ -74,13 +74,13 @@ const SignIn = () => {
                     
                     <AppLogo />
                     <CustomInput
-                        placeholder="email"
+                        placeholder="Email"
                         value={email}
                         setValue={setEmail}
                         secureTextEntry={false}
                     />
                     <CustomInput
-                        placeholder="password"
+                        placeholder="Password"
                         value={password}
                         setValue={setPassword}
                         secureTextEntry={true}
