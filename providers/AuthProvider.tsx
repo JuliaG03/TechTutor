@@ -12,7 +12,7 @@ interface Lesson {
     idlearningpath: number;
     name: string;
     content: string;
-    completed: boolean; 
+   // completed: boolean | false; 
 }
 
 interface Question {
@@ -56,6 +56,8 @@ type AuthData = {
     lessons?: Lesson[];
     questions?: Question[];
     answers?: Answer[];
+    completedLesson?: Int16Array[];
+    completedLessons?: { idlearningpath: number; idlesson: number }[];
 };
 
 const AuthContext = createContext<AuthData>({
@@ -70,6 +72,7 @@ const AuthContext = createContext<AuthData>({
     lessons: [],
     questions: [],
     answers: [],
+    completedLessons: [],
 });
 
 export default function AuthProvider({ children }: PropsWithChildren) {
@@ -80,9 +83,11 @@ export default function AuthProvider({ children }: PropsWithChildren) {
     const [lessons, setLessons] = useState<Lesson[]>([]);
     const [questions, setQuestions] = useState<Question[]>([]);
     const [answers, setAnswers] = useState<Answer[]>([]);
+    const [completedLessons, setCompletedLessons] = useState<{ idlearningpath: number; idlesson: number }[]>([]);
 
     useEffect(() => {
         const fetchSession = async () => {
+          
             const { data: { session } } = await supabase.auth.getSession();
             if (session) {
                 // Fetch user data
@@ -116,6 +121,28 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                     }
                     setLessons(lessonsData);
 
+
+                    const { data: userLessonsData, error: userLessonsError } = await supabase
+                        .from('userlesson')
+                        .select('*')
+                        .eq('iduser', id);
+                    if (userLessonsError) {
+                        throw userLessonsError;
+                    }
+
+                    // Actualizează lecțiile finalizate
+                    setCompletedLessons(userLessonsData.map((userLesson: any) => ({
+                        idlearningpath: userLesson.idlearningpath,
+                        idlesson: userLesson.idlesson
+                    })));
+                    // Marcam lecțiile din userData ca finalizate în funcție de datele din tabela UserLesson
+                    // const updatedLessons = lessonsData.map(lesson => { 
+                      
+                    //     const isCompleted = userLessonsData.some(userLesson => userLesson.idlesson === lesson.idlesson && userLesson.idlearningpath === lesson.idlearningpath);
+                    //     return { ...lesson, completed: isCompleted };
+                    // });
+                    // setLessons(updatedLessons);
+
                     // Fetch questions
                     const { data: questionsData, error: questionsError } = await supabase
                         .from('questions')
@@ -134,20 +161,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                     }
                     setAnswers(answersData);
                     
-                    const { data: userLessonsData, error: userLessonsError } = await supabase
-                        .from('userlesson')
-                        .select('*')
-                        .eq('iduser', id);
-                    if (userLessonsError) {
-                        throw userLessonsError;
-                    }
-
-                    // Marcam lecțiile din userData ca finalizate în funcție de datele din tabela UserLesson
-                    const updatedLessons = lessonsData.map(lesson => {
-                        const isCompleted = userLessonsData.some(userLesson => userLesson.idlesson === lesson.idlesson && userLesson.idlearningpath === lesson.idlearningpath);
-                        return { ...lesson, completed: isCompleted };
-                    });
-                    setLessons(updatedLessons);
+                    
 
                     setUserData({ id, email, ...userData });
                 } else {
@@ -166,7 +180,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
             setSession(session);
         });
        
-    }, [session]);
+    },[session, loading]);
 
     const updateUserData = async (newUserData: Partial<UserData>) => {
         if (userData) {
@@ -215,7 +229,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
     };
 
     return (
-        <AuthContext.Provider value={{ session, loading, userData, updateUser, setSession, updateUserData, userDidLesson, learningPaths, lessons, questions, answers }}>
+        <AuthContext.Provider value={{ session, loading, userData, updateUser, setSession, updateUserData, userDidLesson, learningPaths, lessons, questions, answers, completedLessons }}>
             {children}
         </AuthContext.Provider>
     );

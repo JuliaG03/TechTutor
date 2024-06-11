@@ -16,6 +16,7 @@ const ProfileScreen = () => {
     const navigation = useNavigation();
     const route = useRoute();
     const { userData } = useAuth();
+    
     const isCurrentUser = userData?.id === route.params?.userId;
     const [profileData, setProfileData] = useState(null);
 
