@@ -20,3 +20,4 @@ expo-env.d.ts
 .vs/
 # @end expo-cli
 /app/(auth)/sign-up.tsx
+/.vs/slnx.sqlite
