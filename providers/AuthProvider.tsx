@@ -190,7 +190,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
         }
     };
 
-   const userDidLesson = async (idlesson: number, idlearningpath: number): void => { // Removed Promise<void> type
+   const userDidLesson = async (idlesson: number, idlearningpath: number) => { // Removed Promise<void> type
         try {
             if (userData) {
                 const { data, error } = await supabase
