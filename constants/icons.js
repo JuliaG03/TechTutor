@@ -19,6 +19,9 @@ import heart from "@/assets/icons/heart.png";
 import python from "@/assets/icons/python.png";
 import java from "@/assets/icons/java.png";
 import cplusplus from "@/assets/icons/c++.png";
+import lessonCompleted from "@/assets/icons/lessonCompleted.png"
+import lessonCurrent from "@/assets/icons/lessonCurrent.png"
+import lessonLocked from "@/assets/icons/lessonLocked.png"
 
 export default {
   play,
@@ -41,5 +44,8 @@ export default {
   heart,
   python,
   java,
-  cplusplus
+  cplusplus,
+  lessonCompleted,
+  lessonCurrent,
+  lessonLocked
 };

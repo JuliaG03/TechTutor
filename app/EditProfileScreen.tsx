@@ -7,7 +7,7 @@ import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import {Avatar, Title, Caption, TouchableRipple} from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import  images  from '../../constants/images';
+import  images  from '../constants/images';
 import CustomButton from '@/components/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
