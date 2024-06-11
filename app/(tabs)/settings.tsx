@@ -7,11 +7,11 @@ import { useNavigation } from '@react-navigation/native';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { supabase } from '@/lib/supabase';
-
+//main component function
 const Settings = () => {
     const colorScheme = useColorScheme();
     const navigation = useNavigation();
-
+    //  styles
     const styles = StyleSheet.create({
         container: {
             flex: 1,
@@ -62,7 +62,7 @@ const Settings = () => {
             marginBottom: 10,
         },
     });
-
+    //settings options
     const settingsOptions = [
         { name: 'Edit Profile', icon: 'account-edit', screen: 'EditProfileScreen' },
         { name: 'Support', icon: 'account-check-outline', screen: 'Support' },
@@ -72,7 +72,7 @@ const Settings = () => {
         { name: 'Logout', icon: 'logout', screen: 'Logout'}
     ];
 
-
+    //function to handle the menu press
     const handleMenuPress = (screen) => {
         if (screen === 'Logout') {
             supabase.auth.signOut();
@@ -80,7 +80,7 @@ const Settings = () => {
             navigation.navigate(screen);
         }
     };
-
+    //return statement
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.userInfoSection}>

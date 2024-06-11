@@ -20,7 +20,7 @@ const SignIn = () => {
     const { session,updateUserData, setSession } = useAuth();
     const [loading, setLoading] = useState(false);
 
-
+    //function to handle the sign in button press
     const signInWithEmail = async () => {
         setLoading(true);
 
@@ -31,7 +31,7 @@ const SignIn = () => {
             setLoading(false);
             return;
         }
-
+        
         const user = newData.session.user;
         const { data: userData, error: fetchError } = await supabase
             .from('users')
@@ -47,20 +47,20 @@ const SignIn = () => {
         }
         setLoading(false);
     };
-
+    //function to handle the forgot password button press
     const forgotPasswordPress = () => {
         //console.warn("Forgot password");
         navigation.navigate('ForgotPassword');
     }
-
+    //function to handle the sign in with google button press
     const signInWithGoogle = () => {
         //console.warn("Sign in with Google");
     }
-
+    //function to handle the sign in with facebook button press
     const signInWithFacebook = () => {
         //console.warn("Sign in with Facebook");
     }
-
+    //function to handle the create account button press
     const createAccount = () => {
         //console.warn("Sign up");
         navigation.navigate('SignUp');

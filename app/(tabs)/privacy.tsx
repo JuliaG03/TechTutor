@@ -3,10 +3,10 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-
+//main component function
 const Privacy= () => {
     const colorScheme = useColorScheme();
-
+    //styles
     const styles = StyleSheet.create({
         container: {
             flex: 1,
@@ -32,7 +32,7 @@ const Privacy= () => {
             marginBottom: 10,
         },
     });
-
+    //returning the view
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>

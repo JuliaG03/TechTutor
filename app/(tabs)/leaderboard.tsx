@@ -7,7 +7,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import { useNavigation } from '@react-navigation/native';
 import BackNavigationHeader from '@/components/BackNavigationHeader';
 import { useAuth } from '@/providers/AuthProvider'; 
-
+//main component function
 const Leaderboard = () => {
     const [users, setUsers] = useState<User[]>([]);
     const colorScheme = useColorScheme();
@@ -15,7 +15,7 @@ const Leaderboard = () => {
     const { userData } = useAuth();
     const navigation = useNavigation();
 
-
+    //function to fetch the users
     useEffect(() => {
         const fetchUsers = async () => {
             try {
@@ -31,7 +31,7 @@ const Leaderboard = () => {
 
         fetchUsers();
     }, []);
-
+    //styles
     const styles = StyleSheet.create({
         container: {
             borderColor: Colors[colorScheme ?? 'light'].green,
@@ -76,7 +76,7 @@ const Leaderboard = () => {
         }
 
     });
-
+    //function to handle the user press
     const handleUserPress = (userId: string) => {
         navigation.navigate('ProfileScreen', { userId }); 
     };

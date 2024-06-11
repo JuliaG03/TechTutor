@@ -11,7 +11,7 @@ import stylesView from '@/components/Styles';
 import { useNavigation } from '@react-navigation/native';
 import SocialSignInButtons from '@/components/SocialSignInButtons';
 import {supabase} from '@/lib/supabase';
-
+//main component function
 const SignUp = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -23,21 +23,21 @@ const SignUp = () => {
     const navigation = useNavigation();
     const { height } = useWindowDimensions();
     const [loading, setLoading] = useState(false);
-
+    //function to handle the sign up button press
     async function signUpWithEmail() {
         if (password !== repeatPassword) {
             Alert.alert('Error', 'Passwords do not match');
             return;
         }
-
+        // Check if all fields are filled
         if (!email || !password || !username || !lastname || !firstname || !phone) {
             Alert.alert('Error', 'Please fill all fields');
             return;
         }
         setLoading(true);
-
+        // Sign up with email and password
         const { data, error } = await supabase.auth.signUp({ phone, email, password });
-
+        // Check for errors
         if (error) {
             console.error('Error signing up:', error.message);
             Alert.alert('Error signing up:', error.message);
@@ -45,7 +45,7 @@ const SignUp = () => {
             return;
         }
         const user = data?.user;
-
+        // Insert user data into the database
         await supabase.from('users').insert({
             id: user?.id,
             email: user?.email,
@@ -55,21 +55,22 @@ const SignUp = () => {
             firstname: firstname,
             score: 0
         });
+        // Send email confirmation
         Alert.alert('Account created. Now please sign in!');
         setLoading(false);
         navigation.navigate('SignIn');
     }
 
-
+    //function to handle the sign in button press
     const signUpPress = () => {
         console.warn("Sign Up");
     }
-
+    //function to handle the sign in button press
     const SignIn = () => {
         console.warn("Sign in");
         navigation.navigate('SignIn');
     }
-
+    //color scheme
     const colorScheme = useColorScheme();
     const generatedStyles = stylesView(); 
 

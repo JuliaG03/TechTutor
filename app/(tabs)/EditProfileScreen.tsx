@@ -21,7 +21,7 @@ const EditProfileScreen = () => {
   const { userData, updateUser } = useAuth();
   const [username, setUsername] = useState(userData?.username || '');
   const [phone, setPhone] = useState(userData?.phone || '');
-
+  
   const [isModalVisible, setIsModalVisible] = useState(false);
   const toggleModal = () => {
       setIsModalVisible(!isModalVisible);
@@ -32,22 +32,22 @@ const EditProfileScreen = () => {
 
   const navigation = useNavigation();
 
-
+  //function to handle the back button press
   const onBackPress = () => {
     navigation.navigate('ProfileScreen');
   };    
-
+  //function to handle the take photo button press
   const onTakePhotoPress = () => {
     navigation.navigate('ProfileScreen');
   };
-
+  //function to handle the choose from gallery button press
   const onChooseFromGalleryPress = () => {
     navigation.navigate('ProfileScreen');
   };
-
+  //function to handle the forgot password button press
   const forgotPasswordPress = () => {
     navigation.navigate('ForgotPassword');
-}
+}//function to handle the submit button press
    const onSubmitPress = () => {
        updateUser({ username, phone });
        //Alert.alert('Changes made succsefully');
