@@ -54,7 +54,7 @@ type AuthData = {
     updateUser: (newUserData: Partial<UserData>) => void;
     setSession: (session: Session | null) => void;
     updateUserData: (newUserData: Partial<UserData>) => void;
-    userDidLesson: (idlesson: number, idlearningpath: number) => Promise<void>;
+    userDidLesson: (idlesson: number, idlearningpath: number) => void;
 };
 
 const AuthContext = createContext<AuthData>({
@@ -190,22 +190,25 @@ export default function AuthProvider({ children }: PropsWithChildren) {
         }
     };
 
-    const userDidLesson = async (idlesson: number, idlearningpath: number) : Promise<void> => {
+   const userDidLesson = async (idlesson: number, idlearningpath: number): void => { // Removed Promise<void> type
         try {
             if (userData) {
                 const { data, error } = await supabase
                     .from('userlesson')
                     .insert([{ iduser: userData.id, idlesson: idlesson, idlearningpath: idlearningpath }]);
-
+    
                 if (error) {
                     throw error;
                 }
-
             }
         } catch (error) {
             console.error('Error updating user did lesson:', error);
+            // No need to throw the error here since it's not a promise
         }
     };
+    
+
+    
 
     return (
         <AuthContext.Provider value={{ session, loading, userData, updateUser, setSession, updateUserData, userDidLesson }}>
