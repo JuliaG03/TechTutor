@@ -17,7 +17,7 @@ export default function LearningPaths({route}) {
   const [courseId, setCourseId] = useState(0); // Default to the first course
   const [sectionId, setSectionId] = useState(0); // Default to the first section
   const [lessonId, setLessonId] = useState(0); // Default to the first lesson
-  const { userData, loading } = useAuth(); 
+  const { userData, loading, learningPaths, lessons } = useAuth(); 
 
   const language = courseData.language[courseId]; // Get the selected language/course
   if (!language) return null;
@@ -37,19 +37,19 @@ export default function LearningPaths({route}) {
     );
   }
   const getFirstLessonName = (sectionIndex) => { // functie de testare
-    const learningPath = userData?.learningPaths?.find(path => path.idlearningpath === learningPathId);
-    const firstLesson = userData?.lessons?.find(lesson => lesson.idlearningpath === learningPathId && lesson.idlesson === sectionIndex);
+    const learningPath = learningPaths?.find(path => path.idlearningpath === learningPathId);
+    const firstLesson = lessons?.find(lesson => lesson.idlearningpath === learningPathId && lesson.idlesson === sectionIndex);
     return firstLesson ? firstLesson.name : "First Lesson Not Found";
   };
 
   const getLearningPathName = (id) => {
-    const learningPath = userData?.learningPaths?.find(path => path.idlearningpath === id);
+    const learningPath = learningPaths?.find(path => path.idlearningpath === id);
     return learningPath ? learningPath.name : "Learning Path Not Found";
   };
 
   const renderCourseSection = (section, sectionIndex) => (
     <View key={sectionIndex} style={styles.sectionContainer}>
-        {/* <Text style={{color: 'red'}}>{getFirstLessonName(8)}</Text> pentru testare*/}
+        {/* <Text style={{color: 'red'}}>{getFirstLessonName(8)}</Text> pt testare */}
       <View style={styles.sectionHeader}>
         <View style={{ flex: 1 }}>
           <Text style={[styles.sectionTitle, { color: Colors[colorScheme ?? "light"].text }]}>

@@ -41,10 +41,7 @@ type UserData = {
     firstname?: string;
     score?: number;
     lives?: number;
-    learningPaths?: LearningPath[];
-    lessons?: Lesson[];
-    questions?: Question[];
-    answers?: Answer[];
+   
 };
 
 type AuthData = {
@@ -55,6 +52,10 @@ type AuthData = {
     setSession: (session: Session | null) => void;
     updateUserData: (newUserData: Partial<UserData>) => void;
     userDidLesson: (idlesson: number, idlearningpath: number) => void;
+    learningPaths?: LearningPath[];
+    lessons?: Lesson[];
+    questions?: Question[];
+    answers?: Answer[];
 };
 
 const AuthContext = createContext<AuthData>({
@@ -65,12 +66,20 @@ const AuthContext = createContext<AuthData>({
     setSession: () => { },
     updateUserData: () => { },
     userDidLesson: () => { },
+    learningPaths: [],
+    lessons: [],
+    questions: [],
+    answers: [],
 });
 
 export default function AuthProvider({ children }: PropsWithChildren) {
     const [session, setSession] = useState<Session | null>(null);
     const [loading, setLoading] = useState(true);
     const [userData, setUserData] = useState<UserData | null>(null);
+    const [learningPaths, setLearningPaths] = useState<LearningPath[]>([]);
+    const [lessons, setLessons] = useState<Lesson[]>([]);
+    const [questions, setQuestions] = useState<Question[]>([]);
+    const [answers, setAnswers] = useState<Answer[]>([]);
 
     useEffect(() => {
         const fetchSession = async () => {
@@ -88,11 +97,6 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                     throw userError;
                 }
 
-                let learningPaths: LearningPath[] = [];
-                let lessons: Lesson[] = [];
-                let questions: Question[] = [];
-                let answers: Answer[] = [];
-
                 if (userData) {
                     // Fetch learning paths
                     const { data: learningPathsData, error: learningPathsError } = await supabase
@@ -101,7 +105,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                     if (learningPathsError) {
                         throw learningPathsError;
                     }
-                    learningPaths = learningPathsData;
+                    setLearningPaths(learningPathsData);
 
                     // Fetch lessons
                     const { data: lessonsData, error: lessonsError } = await supabase
@@ -110,7 +114,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                     if (lessonsError) {
                         throw lessonsError;
                     }
-                    lessons = lessonsData;
+                    setLessons(lessonsData);
 
                     // Fetch questions
                     const { data: questionsData, error: questionsError } = await supabase
@@ -119,7 +123,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                     if (questionsError) {
                         throw questionsError;
                     }
-                    questions = questionsData;
+                    setQuestions(questionsData);
 
                     // Fetch answers
                     const { data: answersData, error: answersError } = await supabase
@@ -128,23 +132,24 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                     if (answersError) {
                         throw answersError;
                     }
-                    answers = answersData;
+                    setAnswers(answersData);
                     
                     const { data: userLessonsData, error: userLessonsError } = await supabase
                         .from('userlesson')
                         .select('*')
                         .eq('iduser', id);
-                        if (userLessonsError) {
-                            throw userLessonsError;
-                        }
+                    if (userLessonsError) {
+                        throw userLessonsError;
+                    }
 
                     // Marcam lecțiile din userData ca finalizate în funcție de datele din tabela UserLesson
-                    const updatedLessons = lessons?.map(lesson => {
-                        const isCompleted = userLessonsData.some(userLesson => userLesson.idlesson === lesson.idlesson && userLesson.idlearningPath === lesson.idlearningpath);
+                    const updatedLessons = lessonsData.map(lesson => {
+                        const isCompleted = userLessonsData.some(userLesson => userLesson.idlesson === lesson.idlesson && userLesson.idlearningpath === lesson.idlearningpath);
                         return { ...lesson, completed: isCompleted };
                     });
+                    setLessons(updatedLessons);
 
-                      setUserData({ id, email, ...userData, learningPaths, lessons: updatedLessons, questions, answers });
+                    setUserData({ id, email, ...userData });
                 } else {
                     setUserData(null);
                 }
@@ -167,9 +172,10 @@ export default function AuthProvider({ children }: PropsWithChildren) {
         if (userData) {
             const updatedUserData = { ...userData, ...newUserData };
             setUserData(updatedUserData);
+            console.log('Updated user data:', updatedUserData);
         }
     };
-
+    
     const updateUser = async (newUserData: Partial<UserData>) => {
         if (userData) {
             const updatedUserData = { ...userData, ...newUserData };
@@ -180,22 +186,24 @@ export default function AuthProvider({ children }: PropsWithChildren) {
                     .from('users')
                     .update(updatedUserData)
                     .eq('id', userData.id);
-
+                
                 if (error) {
-                    throw error;
+                    console.error('Error updating user data:', error);
+                } else {
+                    console.log('User data updated successfully');
                 }
             } catch (error) {
-                console.error('Error updating user data');
+                console.error('Error updating user data:', error);
             }
         }
     };
-
-   const userDidLesson = async (idlesson: number, idlearningpath: number) => { // Removed Promise<void> type
+    
+    const userDidLesson = async (idlesson: number, idlearningpath: number) => {
         try {
             if (userData) {
                 const { data, error } = await supabase
                     .from('userlesson')
-                    .insert([{ iduser: userData.id, idlesson: idlesson, idlearningpath: idlearningpath }]);
+                    .insert([{ iduser: userData.id, idlesson, idlearningpath }]);
     
                 if (error) {
                     throw error;
@@ -203,15 +211,11 @@ export default function AuthProvider({ children }: PropsWithChildren) {
             }
         } catch (error) {
             console.error('Error updating user did lesson:', error);
-            // No need to throw the error here since it's not a promise
         }
     };
-    
-
-    
 
     return (
-        <AuthContext.Provider value={{ session, loading, userData, updateUser, setSession, updateUserData, userDidLesson }}>
+        <AuthContext.Provider value={{ session, loading, userData, updateUser, setSession, updateUserData, userDidLesson, learningPaths, lessons, questions, answers }}>
             {children}
         </AuthContext.Provider>
     );

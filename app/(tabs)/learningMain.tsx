@@ -10,7 +10,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 export default function LearningPaths() {
     const colorScheme = useColorScheme();
     const navigation = useNavigation();
-    const { userData, loading } = useAuth();
+    const { userData, loading, learningPaths,  } = useAuth();
     const generatedStyles = stylesView();
     const [shakeAnimation] = useState(new Animated.Value(0));
 
@@ -50,15 +50,7 @@ export default function LearningPaths() {
     };
     
 
-    if (loading) {
-        return (
-            <View style={styles.loadingContainer}>
-                <Text>Loading...</Text>
-            </View>
-        );
-    }
 
-    const learningPaths = userData?.learningPaths;
 
     const styles = StyleSheet.create({
         container: {
@@ -86,6 +78,14 @@ export default function LearningPaths() {
         },
     });
     
+    if (loading) {
+        return (
+            <View style={styles.loadingContainer}>
+                <Text>Loading...</Text>
+            </View>
+        );
+    }
+
     return (
         <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? "light"].tabBackground }]}>
             <Text style={[generatedStyles.title, { color: Colors[colorScheme ?? 'light'].tint }]}>Leaderboard</Text>
