@@ -13,14 +13,19 @@ export default function LearningPaths() {
   const colorScheme = useColorScheme();
   const navigation = useNavigation(); // Initialize useNavigation hook
   const [courseId, setCourseId] = useState(0); // Default to the first course
+<<<<<<< Updated upstream
   const [sectionId, setSectionId] = useState(0); // Default to the first section
   const [lessonId, setLessonId] = useState(0); // Default to the first lesson
+=======
+
+ 
+  const { userData, loading, learningPaths, lessons, completedLessons } = useAuth();
+>>>>>>> Stashed changes
 
   const language = courseData.language[courseId]; // Get the selected language/course
   if (!language) return null;
 
-  const currentSection = language.sections[sectionId];
-  if (!currentSection) return null;
+
 
   const renderCourseSection = (section, sectionIndex) => (
     <View key={sectionIndex} style={styles.sectionContainer}>
@@ -60,6 +65,7 @@ export default function LearningPaths() {
   );
 
   return (
+<<<<<<< Updated upstream
     <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? "light"].tabBackground }]}>
       <CourseDetailsBar courseName={language.name} courseImg={`@/assets/icons/${language.img}`} />
       <ScrollView
@@ -71,6 +77,44 @@ export default function LearningPaths() {
         )}
       </ScrollView>
     </SafeAreaView>
+=======
+    <ScrollView>
+      <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? "light"].tabBackground }]}>
+        <CourseDetailsBar courseName={getLearningPath(learningPathId)?.name} courseImg={`@/assets/icons/${language.img}`} />
+        <View style={styles.lessonsContainer}>
+        {lessons && lessons.length > 0 && lessons.map((lesson) => {
+            
+            const isLessonInPath = lesson.idlearningpath === learningPathId;
+            if (!isLessonInPath) return null;
+            const index = lesson.idlesson; 
+           
+            return (
+              <TouchableOpacity
+               key={index} 
+               style={styles.lessonContainer}
+               onPress={() => navigation.navigate('LessonContent', { idLearningPath: lesson.idlearningpath, idLesson: lesson.idlesson })}>
+
+                <LinearGradient
+                  colors={ [Colors[colorScheme ?? 'light'].purple, Colors[colorScheme ?? 'light'].purple]  }
+                  style={styles.gradient}
+                > 
+                  
+                  <View style={[styles.circle, { width: CIRCLE_RADIUS, height: CIRCLE_RADIUS, backgroundColor: (completedLessons?.some(pair => pair.idlesson === lesson.idlesson && pair.idlearningpath === lesson.idlearningpath)) ?  Colors.light.tint : "gray" }]}>
+                    <Text style={styles.circleText}>{index}</Text>
+                  </View>
+                  <View style={styles.details}>
+                    <Text style={[styles.lessonName, { color: Colors[colorScheme ?? "light"].text }]}>
+                      {lesson.name}
+                    </Text>
+                  </View>
+                </LinearGradient>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+      </SafeAreaView>
+    </ScrollView>
+>>>>>>> Stashed changes
   );
 }
 

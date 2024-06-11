@@ -14,6 +14,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useState } from 'react';
 import { useAuth } from '@/providers/AuthProvider';
 import Toast from 'react-native-toast-message';
+import BackNavigationHeader from '@/components/BackNavigationHeader';
 
 const EditProfileScreen = () => {
  // const fall = new Animated.Value(1);
@@ -126,22 +127,10 @@ const EditProfileScreen = () => {
     },
  });
 
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerLeft: () => (
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <TouchableOpacity onPress={onBackPress} style ={{marginLeft: 20}}>
-          <Icon name="arrow-left" size={25} style={[generatedStyles.icon, { marginRight: 5 }]}/>
-        </TouchableOpacity>
-        <Text style={styles.text}>Back</Text>
-      </View>
-      ),
-    });
-  }, [navigation]);
-
   
     return (
         <SafeAreaView  style={{ ...styles.container}}>
+            <BackNavigationHeader/>
             <View style={styles.container}>
                
                 <TouchableOpacity onPress={toggleModal}>

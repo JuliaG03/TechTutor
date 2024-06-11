@@ -23,6 +23,11 @@ import Notifications from '@/app/(tabs)/notifications';
 import Privacy from '@/app/(tabs)/privacy';
 import About from '@/app/(tabs)/about';
 import {useAuth} from '@/providers/AuthProvider';
+<<<<<<< Updated upstream
+=======
+import learningMain from '@/app/(tabs)/learningMain';
+import LessonContent from '@/app/(tabs)/LessonContent';
+>>>>>>> Stashed changes
 const Stack = createStackNavigator();
 
 const AppStackNavigation = () => {
@@ -52,6 +57,7 @@ const AppStackNavigation = () => {
                  
                         
                         <Stack.Screen name="SignUp" component={SignUpScreen} />
+                        <Stack.Screen name="LessonContent" component={LessonContent} />
                     
             
                 </Stack.Navigator>
