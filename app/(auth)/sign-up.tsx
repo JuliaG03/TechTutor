@@ -91,43 +91,44 @@ const SignUp = () => {
                 <SafeAreaView style={[generatedStyles.bigView, { backgroundColor: Colors[colorScheme ?? 'light'].background }]}>
                     <Text style={[generatedStyles.title,  {color: Colors[colorScheme ?? 'light'].tint, marginTop: 20}]}>Create an account</Text>
                     <CustomInput
-                        placeholder="username"
+                        placeholder="Username"
                         value={username}
                         setValue={setUsername}
                         secureTextEntry={false}
                     />
                     <CustomInput
-                        placeholder="lastname"
-                        value={lastname}
-                        setValue={setLastname}
-                        secureTextEntry={false}
-                    />
-                     <CustomInput
-                        placeholder="firstname"
+                        placeholder="First Name"
                         value={firstname}
                         setValue={setFirstname}
                         secureTextEntry={false}
                     />
                     <CustomInput
-                        placeholder="E-mail"
+                        placeholder="Last Name"
+                        value={lastname}
+                        setValue={setLastname}
+                        secureTextEntry={false}
+                    />
+                    
+                    <CustomInput
+                        placeholder="Email"
                         value={email}
                         setValue={setEmail}
                         secureTextEntry={false}
                     />
                     <CustomInput
-                        placeholder="password"
+                        placeholder="Password"
                         value={password}
                         setValue={setPassword}
                         secureTextEntry={true}
                     />
                     <CustomInput
-                        placeholder="confirm password"
+                        placeholder="Confirm Password"
                         value={repeatPassword}
                         setValue={setRepeatPassword}
                         secureTextEntry={true}
                     />
                       <CustomInput
-                        placeholder="phone number"
+                        placeholder="Phone Number"
                         value={phone}
                         setValue={setPhone}
                         secureTextEntry={false}
