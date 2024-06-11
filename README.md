@@ -52,6 +52,7 @@ The app offers a diverse range of learning paths covering programming languages,
 
 ## UML Diagram
 
+
 ## Demo
 
 Insert gif or link to demo
@@ -59,23 +60,71 @@ Insert gif or link to demo
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+#### Sign In Screen
+
+![SignIn](https://github.com/JuliaG03/TechTutor/blob/main/screenshots/signIn.jpeg?raw=true)
+
+#### Sign Up Screen
+![SignUp](https://github.com/JuliaG03/TechTutor/blob/main/screenshots/signUp.jpeg?raw=true)
+#### Main Menu Screen
+
+![MainMenu](https://github.com/JuliaG03/TechTutor/blob/main/screenshots/mainMenu.jpeg?raw=true)
+
+#### Forgot Password Screen
+![forgotPassword](https://github.com/JuliaG03/TechTutor/blob/main/screenshots/forgotPassword.jpeg?raw=true)
+
+#### Settings Screen
+![Settings](https://github.com/JuliaG03/TechTutor/blob/main/screenshots/settings.jpeg?raw=true)
+
+#### Profile Screen
+![Profile](https://github.com/JuliaG03/TechTutor/blob/main/screenshots/profile.jpeg?raw=true)
+
+#### Support Screen
+![Support](https://github.com/JuliaG03/TechTutor/blob/main/screenshots/support.jpeg?raw=true)
+
+#### Learning Paths Screens 
+![LearningPaths](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+#### Lessons from Learning Path Screen
+![Lessons](https://github.com/JuliaG03/TechTutor/blob/main/screenshots/lessons.jpeg?raw=true)
+
+#### Lesson Screen
+![Lesson](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+####  About Screen
+
+![About](https://github.com/JuliaG03/TechTutor/blob/main/screenshots/about.jpeg?raw=true)
+
+#### Leaderboard
+
+![About](https://github.com/JuliaG03/TechTutor/blob/main/screenshots/leaderboard.jpeg?raw=true)
 
 
 ## Trello
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/JuliaG03/TechTutor/blob/main/screenshots/trello_mds.png?raw=true)
 
 
-## Automated Tests
-
-tbc
-## Design Patterns
+## Design Patterns used 
 
 
 
-tbc
+### Component Composition:
+Component composition in React Native involves breaking down complex UI components into smaller, reusable components. Each component focuses on a specific task or responsibility, making it easier to understand and maintain the codebase.
 
+ By composing these smaller components together, developers can create more flexible and scalable UIs. For example, a login screen might consist of separate components for input fields, buttons, and error messages, each encapsulating its logic and styling. 
+ 
+Component composition promotes reusability, readability, and maintainability in React Native development.
+
+### Provider Pattern:
+The provider pattern in React Native involves passing data or functionality down through the component tree using context or props. 
+
+Providers are components or hooks responsible for managing shared state or behavior that multiple components need access to. By encapsulating this shared logic in providers, developers can avoid prop drilling and make the codebase more modular and maintainable. 
+
+For example, a theme provider might manage the current theme of the app, providing it to all child components that need access to styling information. 
+
+The provider pattern promotes encapsulation, separation of concerns, and code organization in React Native applications
 ## Using Large Language Models (LLMs)
 
 In the development and debugging phases of our app implementation, we leveraged Large Language Models (LLMs) to enhance our productivity and solve complex problems. Here's how we utilized LLMs in various stages of our project:
@@ -97,60 +146,84 @@ There were times when we had a clear vision of what we wanted to achieve but wer
 - (I'll ask ChatGPT later for more ideas to include here 😉)
 
 - [x]   Tech Tutor approved
+## Getting Started
 
-## Run Locally our app with Expo
+Follow these instructions to get the project up and running on your local machine.
 
-Clone the project
+### Prerequisites
 
-```bash
-  git clone https://link-to-project
-```
+Before you begin, make sure you have Node.js and npm installed on your system. You can download and install them from the [official Node.js website](https://nodejs.org/).
 
-Go to the project directory
+### Installation
 
-```bash
-  cd my-project
-```
+1. Install Expo CLI globally:
 
-Install dependencies
+    ```bash
+    npm install -g expo-cli
+    ```
 
-```bash
-  npm install
-```
+2. Clone this repository:
 
-Start the server
+    ```bash
+    git clone https://github.com/your_username/your_project.git
+    ```
 
-```bash
-  npm run start
-```
+3. Navigate to the project directory:
+
+    ```bash
+    cd your_project
+    ```
+
+4. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+5. Install Supabase client:
+
+    ```bash
+    npm install @supabase/supabase-js
+    ```
+
+### Running the App
+
+1. Start the development server:
+
+    ```bash
+    npx expo start --tunnel
+    ```
+-- disclaimer: there may be issues if you don't run it with --tunnel
 
 
-tbu
+2. Use the Expo Developer Tools to run the app on an iOS or Android simulator, or scan the QR code using the Expo Go app on your mobile device to run the app on your device.
 
-## Hosted on HerokuApp
+## Built With
 
+- [Expo](https://expo.dev/) - Framework and platform for universal React applications
+- [React Native](https://reactnative.dev/) - A framework for building native apps using React
+- [Supabase](https://supabase.io/) - An open-source Firebase alternative
 
-tbd
 ## Project Points
 
 
-    A. Implementation
+#### A. Implementation
 - [ ] Live demo for the app
 
 
 
-    B. Process of Software Development
+#### B. Process of Software Development
 - [x] User stories (1)
 - [x] backlog creation (1) 
-- [ ] UML diagram (2)
+- [x] UML diagram (2)
 - [x] Source control cu git: (2)
   - [x] Branch creation
   - [x] Merge/rebase
-  - [ ] Pull requests
+  - [x] Pull requests
   - [x] Minim 10 commits 
 - [ ] Automated tests (2)
 - [ ] Raportare bug și rezolvare cu pull request (1)
-- [ ] Refactoring, code standards (1)
+- [x] Refactoring, code standards (1)
 - [x] Comentarii cod (1)
 - [x] Design patterns (1)
 - [x] AI Tool  (1)
