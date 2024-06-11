@@ -29,7 +29,7 @@ const MainMenu = () => {
     }
 
     const learningPathsOnPress = () => {
-        navigation.navigate('LearningPaths');
+        navigation.navigate('LearningMain');
     }
 
     const editProfileOnPress = () => {

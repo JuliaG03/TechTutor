@@ -1,0 +1,44 @@
+CREATE TABLE LearningPaths (
+    idLearningPath SERIAL PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
+CREATE TABLE Lessons (
+    idLesson SERIAL NOT NULL,
+    idLearningPath INT NOT NULL,
+    name TEXT NOT NULL,
+    content TEXT NOT NULL,
+    PRIMARY KEY (idLesson, idLearningPath),
+    FOREIGN KEY (idLearningPath) REFERENCES LearningPaths(idLearningPath)
+);
+
+CREATE TABLE Questions (
+    idQuestion SERIAL NOT NULL,
+    idLesson INT NOT NULL,
+    idLearningPath INT NOT NULL,
+    questionText TEXT NOT NULL,
+    points INTEGER NOT NULL,
+    PRIMARY KEY (idQuestion, idLesson, idLearningPath),
+    FOREIGN KEY (idLesson, idLearningPath) REFERENCES Lessons(idLesson, idLearningPath)
+);
+
+CREATE TABLE Answers (
+    idAnswer SERIAL NOT NULL,
+    idQuestion INT NOT NULL,
+    idLesson INT NOT NULL,
+    idLearningPath INT NOT NULL,
+    answerText TEXT NOT NULL,
+    correct BOOLEAN NOT NULL,
+    PRIMARY KEY (idAnswer, idQuestion, idLesson, idLearningPath),
+    FOREIGN KEY (idQuestion, idLesson, idLearningPath) REFERENCES Questions(idQuestion, idLesson, idLearningPath)
+);
+
+CREATE TABLE UserLesson (
+    idUser UUID NOT NULL,
+    idLesson INT NOT NULL,
+    idLearningPath INT NOT NULL,
+    completedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (idUser, idLesson, idLearningPath),
+    FOREIGN KEY (idUser) REFERENCES Users(id),
+    FOREIGN KEY (idLesson, idLearningPath) REFERENCES Lessons(idLesson, idLearningPath)
+);

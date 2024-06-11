@@ -23,6 +23,8 @@ import Notifications from '@/app/(tabs)/notifications';
 import Privacy from '@/app/(tabs)/privacy';
 import About from '@/app/(tabs)/about';
 import {useAuth} from '@/providers/AuthProvider';
+import learningMain from '@/app/(tabs)/learningMain';
+
 const Stack = createStackNavigator();
 
 const AppStackNavigation = () => {
@@ -48,9 +50,8 @@ const AppStackNavigation = () => {
                         <Stack.Screen name="Support" component={Support} />
                         <Stack.Screen name="Notifications" component={Notifications} />
                         <Stack.Screen name="Privacy" component={Privacy} />
+                        <Stack.Screen name="LearningMain" component={learningMain} />
                         <Stack.Screen name="About" component={About} />
-                 
-                        
                         <Stack.Screen name="SignUp" component={SignUpScreen} />
                     
             
