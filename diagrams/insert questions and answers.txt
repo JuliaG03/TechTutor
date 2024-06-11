@@ -1,0 +1,1043 @@
+-- Inserting questions for Lesson 1 in Learning Path 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (1, 1, 1, 'Who developed the C++ programming language?', 5);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (2, 1, 1, 'Which of the following is a feature of C++?', 3);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (3, 1, 1, 'What is C++ known for?', 3);
+
+-- Inserting answers for the questions
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 1, 1, 1, 'Dennis Ritchie', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 1, 1, 1, 'Bjarne Stroustrup', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 1, 1, 1, 'Linus Torvalds', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 1, 1, 1, 'Alan Turing', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 2, 1, 1, 'Automatic garbage collection', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 2, 1, 1, 'Dynamic typing', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 2, 1, 1, 'Object-oriented programming', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 2, 1, 1, 'Interpreted execution', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 3, 1, 1, 'Slow performance', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 3, 1, 1, 'Limited functionality', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 3, 1, 1, 'Efficiency and flexibility', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 3, 1, 1, 'High-level abstraction', false);
+
+
+
+-- Inserting questions for Lesson 2 in Learning Path 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (1, 2, 1, 'Which of the following is NOT a step in setting up a C++ development environment?', 5);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (2, 2, 1, 'What is the purpose of a C++ compiler?', 3);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (3, 2, 1, 'Which IDE is NOT commonly used for C++ development?', 3);
+
+-- Inserting answers for the questions
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 1, 2, 1, 'Installing a C++ compiler', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 1, 2, 1, 'Choosing a programming language', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 1, 2, 1, 'Installing an integrated development environment (IDE)', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 1, 2, 1, 'Configuring your workspace', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 2, 2, 1, 'To translate C++ code into machine-readable instructions', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 2, 2, 1, 'To execute C++ code', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 2, 2, 1, 'To debug C++ code', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 2, 2, 1, 'To format C++ code', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 3, 2, 1, 'PyCharm', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 3, 2, 1, 'Visual Studio', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 3, 2, 1, 'Code::Blocks', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 3, 2, 1, 'Clion', false);
+
+
+
+-- Inserting questions for Lesson 3 in Learning Path 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (1, 3, 1, 'What is the purpose of the #include <iostream> directive in a C++ program?', 5);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (2, 3, 1, 'What is the entry point for executing a C++ program?', 3);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (3, 3, 1, 'What does return 0; signify at the end of the main() function?', 3);
+
+-- Inserting answers for the questions
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 1, 3, 1, 'To include the input/output stream library', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 1, 3, 1, 'To declare the main function', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 1, 3, 1, 'To define a variable', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 1, 3, 1, 'To import external code libraries', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 2, 3, 1, 'main()', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 2, 3, 1, 'init()', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 2, 3, 1, 'start()', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 2, 3, 1, 'begin()', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 3, 3, 1, 'The program encountered an error', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 3, 3, 1, 'The program terminated unexpectedly', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 3, 3, 1, 'The program executed successfully', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 3, 3, 1, 'The program entered an infinite loop', false);
+
+
+
+-- Inserting questions for Lesson 4 in Learning Path 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (1, 4, 1, 'What is the purpose of variables in C++?', 5);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (2, 4, 1, 'Which data type is used to store whole numbers in C++?', 3);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (3, 4, 1, 'What is the output of std::cout << "Passing: " << isPassing << std::endl; if isPassing is true?', 3);
+
+-- Inserting answers for the questions
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 1, 4, 1, 'To store data temporarily during program execution', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 1, 4, 1, 'To define functions', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 1, 4, 1, 'To declare constants', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 1, 4, 1, 'To control program flow', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 2, 4, 1, 'int', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 2, 4, 1, 'double', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 2, 4, 1, 'char', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 2, 4, 1, 'bool', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 3, 4, 1, 'Passing: true', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 3, 4, 1, 'Passing: 1', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 3, 4, 1, 'Passing: 0', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 3, 4, 1, 'Passing: false', false);
+
+
+-- Inserting questions for Lesson 5 in Learning Path 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (1, 5, 1, 'What is the purpose of std::cin in C++?', 5);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (2, 5, 1, 'Which operator is used for input operations in C++?', 3);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (3, 5, 1, 'What does the following code snippet do: std::cout << "Your age is: " << age << std::endl;?', 3);
+
+-- Inserting answers for the questions
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 1, 5, 1, 'To read input from the user', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 1, 5, 1, 'To display output to the console', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 1, 5, 1, 'To include external code libraries', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 1, 5, 1, 'To declare variables', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 2, 5, 1, '>>', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 2, 5, 1, '<<', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 2, 5, 1, '+', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 2, 5, 1, '-', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 3, 5, 1, 'Displays "Your age is: " followed by the value of age to the console', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 3, 5, 1, 'Reads the value of age from the console', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 3, 5, 1, 'Declares a variable named age', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 3, 5, 1, 'Compares the value of age to a specific value', false);
+
+-- Inserting questions for Lesson 6 in Learning Path 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (1, 6, 1, 'What is the purpose of if-else statements in C++?', 5);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (2, 6, 1, 'What does the condition num > 0 check in the if statement if (num > 0)?', 3);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (3, 6, 1, 'What message is displayed if the user enters the number 0 in the program?', 3);
+
+-- Inserting answers for the questions
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 1, 6, 1, 'To implement decision-making based on conditions', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 1, 6, 1, 'To declare variables', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 1, 6, 1, 'To perform arithmetic operations', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 1, 6, 1, 'To include external code libraries', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 2, 6, 1, 'Whether num is greater than 0', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 2, 6, 1, 'Whether num is less than 0', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 2, 6, 1, 'Whether num is equal to 0', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 2, 6, 1, 'Whether num is a prime number', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 3, 6, 1, 'The number is zero.', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 3, 6, 1, 'The number is positive.', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 3, 6, 1, 'The number is negative.', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 3, 6, 1, 'No message is displayed.', false);
+
+
+-- Inserting questions for Lesson 7 in Learning Path 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (1, 7, 1, 'Which loop is used to iterate over a sequence of numbers in C++?', 5);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (2, 7, 1, 'What is the purpose of the loop control variable i in the line for (int i = 0; i < 5; i++)?', 3);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (3, 7, 1, 'How does the while loop determine when to stop iterating?', 3);
+
+-- Inserting answers for the questions
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 1, 7, 1, 'for loop', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 1, 7, 1, 'while loop', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 1, 7, 1, 'do-while loop', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 1, 7, 1, 'repeat-until loop', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 2, 7, 1, 'To define the starting value of the loop', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 2, 7, 1, 'To define the ending condition of the loop', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 2, 7, 1, 'To increment the loop variable', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 2, 7, 1, 'To access the current iteration value', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 3, 7, 1, 'By checking if a condition is true', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 3, 7, 1, 'By counting the number of iterations', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 3, 7, 1, 'By reaching a predefined limit', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 3, 7, 1, 'By executing a fixed number of iterations', false);
+
+-- Inserting questions for Lesson 8 in Learning Path 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (1, 8, 1, 'What is the purpose of functions in C++?', 5);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (2, 8, 1, 'What is the difference between a function declaration and a function definition in C++?', 3);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (3, 8, 1, 'How do you call a function in C++?', 3);
+
+-- Inserting answers for the questions
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 1, 8, 1, 'To group code into logical units for reusability and organization', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 1, 8, 1, 'To define variables', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 1, 8, 1, 'To perform arithmetic operations', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 1, 8, 1, 'To import external code libraries', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 2, 8, 1, 'A declaration provides the function signature, while a definition provides the function implementation.', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 2, 8, 1, 'There is no difference, they are used interchangeably.', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 2, 8, 1, 'A definition is optional, while a declaration is mandatory.', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 2, 8, 1, 'A declaration is used inside the main function, while a definition is used outside the main function.', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 3, 8, 1, 'By using its name followed by parentheses and passing arguments if needed', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 3, 8, 1, 'By declaring it inside another function', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 3, 8, 1, 'By defining it inside another function', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 3, 8, 1, 'By using the return statement', false);
+
+-- Inserting questions for Lesson 9 in Learning Path 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (1, 9, 1, 'What is the purpose of arrays in C++?', 5);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (2, 9, 1, 'How do you access elements of an array in C++?', 3);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (3, 9, 1, 'What is a pointer in C++?', 3);
+
+-- Inserting answers for the questions
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 1, 9, 1, 'To represent a collection of elements of the same data type', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 1, 9, 1, 'To store data of different data types', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 1, 9, 1, 'To declare functions', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 1, 9, 1, 'To perform arithmetic operations', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 2, 9, 1, 'By using index notation (array[index])', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 2, 9, 1, 'By using the * operator', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 2, 9, 1, 'By using the . operator', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 2, 9, 1, 'By using the & operator', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 3, 9, 1, 'A variable that stores a memory address', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 3, 9, 1, 'A variable that stores a value', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 3, 9, 1, 'A variable that stores a reference to another variable', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 3, 9, 1, 'A variable that stores the result of an arithmetic operation', false);
+
+
+-- Inserting questions for Lesson 10 in Learning Path 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (1, 10, 1, 'What is a class in C++?', 5);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (2, 10, 1, 'What is the purpose of a constructor in C++?', 3);
+
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points) VALUES (3, 10, 1, 'Which OOP concept allows one class to inherit properties and behaviors from another class?', 3);
+
+-- Inserting answers for the questions
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 1, 10, 1, 'A blueprint for creating objects with attributes and methods', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 1, 10, 1, 'An instance of an object', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 1, 10, 1, 'A data type used to store numbers', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 1, 10, 1, 'A function that performs a specific task', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 2, 10, 1, 'To initialize member variables of an object', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 2, 10, 1, 'To create objects', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 2, 10, 1, 'To perform arithmetic operations', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 2, 10, 1, 'To declare methods', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (1, 3, 10, 1, 'Inheritance', true);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (2, 3, 10, 1, 'Encapsulation', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (3, 3, 10, 1, 'Polymorphism', false);
+
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct) VALUES (4, 3, 10, 1, 'Abstraction', false);
+
+
+
+-- Intrebarea 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (1, 1, 2, 'Who developed the Java programming language?', 1);
+
+-- Raspunsurile pentru Intrebarea 1
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+    (1, 1, 1, 2, 'Dennis Ritchie', false),
+    (2, 1, 1, 2, 'Guido van Rossum', false),
+    (3, 1, 1, 2, 'James Gosling', true),
+    (4, 1, 1, 2, 'Bjarne Stroustrup', false);
+
+-- Intrebarea 2
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (2, 1, 2, 'What is one of the key characteristics of Java programs?', 1);
+
+-- Raspunsurile pentru Intrebarea 2
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+    (1, 2, 1, 2, 'Platform independence', false),
+    (2, 2, 1, 2, 'Dynamic typing', false),
+    (3, 2, 1, 2, 'Portability', true),
+    (4, 2, 1, 2, 'Low-level memory manipulation', false);
+
+-- Intrebarea 3
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (3, 1, 2, 'Which component is responsible for running Java bytecode?', 1);
+
+-- Raspunsurile pentru Intrebarea 3
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+    (1, 3, 1, 2, 'Java Compiler', false),
+    (2, 3, 1, 2, 'Java Interpreter', false),
+    (3, 3, 1, 2, 'Java Virtual Machine (JVM)', true),
+    (4, 3, 1, 2, 'Java Debugger', false);
+
+-- Intrebarea 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (1, 2, 2,
+'Where can you download the Java Development Kit (JDK)?',
+1);
+
+-- Raspunsurile pentru Intrebarea 1
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 1, 2, 2, 'oracle.com/java', true),
+(2, 1, 2, 2, 'java.com', false),
+(3, 1, 2, 2, 'javadevkit.org', false),
+(4, 1, 2, 2, 'jdkdownload.net', false);
+
+-- Intrebarea 2
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (2, 2, 2,
+'Which component of the JDK is responsible for compiling Java source code?',
+1);
+
+-- Raspunsurile pentru Intrebarea 2
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 2, 2, 2, 'Java Virtual Machine (JVM)', false),
+(2, 2, 2, 2, 'Java Compiler', true),
+(3, 2, 2, 2, 'Java Runtime Environment (JRE)', false),
+(4, 2, 2, 2, 'Java Debugger', false);
+
+-- Intrebarea 3
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (3, 2, 2,
+'What is an IDE?',
+1);
+
+-- Raspunsurile pentru Intrebarea 3
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 3, 2, 2, 'Integrated Documentation Environment', false),
+(2, 3, 2, 2, 'Interactive Development Environment', true),
+(3, 3, 2, 2, 'Integrated Development Environment', false),
+(4, 3, 2, 2, 'Interactive Documentation Environment', false);
+
+-- Intrebarea 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (1, 3, 2,
+'How are statements terminated in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 1
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 1, 3, 2, 'With a period (.)', false),
+(2, 1, 3, 2, 'With a comma (,)', false),
+(3, 1, 3, 2, 'With a semicolon (;)', true),
+(4, 1, 3, 2, 'With a colon (:) ', false);
+
+-- Intrebarea 2
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (2, 3, 2,
+'What is the output of System.out.println("Name: " + name); if name is "Alice"?',
+1);
+
+-- Raspunsurile pentru Intrebarea 2
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 2, 3, 2, 'Name: Alice', false),
+(2, 2, 3, 2, 'Alice', true),
+(3, 2, 3, 2, 'Name: "Alice"', false),
+(4, 2, 3, 2, '"Name: Alice"', false);
+
+-- Intrebarea 3
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (3, 3, 2,
+'Which data type is used to represent true or false values in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 3
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 3, 3, 2, 'int', false),
+(2, 3, 3, 2, 'double', false),
+(3, 3, 3, 2, 'String', false),
+(4, 3, 3, 2, 'Boolean', true);
+
+
+-- Intrebarea 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (1, 4, 2,
+'What is the purpose of the Scanner class in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 1
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 1, 4, 2, 'To display output to the console', false),
+(2, 1, 4, 2, 'To read input from the user', true),
+(3, 1, 4, 2, 'To declare variables', false),
+(4, 1, 4, 2, 'To perform arithmetic operations', false);
+
+-- Intrebarea 2
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (2, 4, 2,
+'Which method of the Scanner class is used to read a line of text entered by the user?',
+1);
+
+-- Raspunsurile pentru Intrebarea 2
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 2, 4, 2, 'next()', false),
+(2, 2, 4, 2, 'nextInt()', false),
+(3, 2, 4, 2, 'nextLine()', true),
+(4, 2, 4, 2, 'readLine()', false);
+
+-- Intrebarea 3
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (3, 4, 2,
+'What is the output of System.out.println("Hello, " + name + "! Welcome to Tech Tutor."); if the user enters "Alice" as their name?',
+1);
+
+-- Raspunsurile pentru Intrebarea 3
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 3, 4, 2, 'Hello, Alice! Welcome to Tech Tutor.', true),
+(2, 3, 4, 2, 'Hello, "Alice"! Welcome to Tech Tutor.', false),
+(3, 3, 4, 2, 'Hello, Alice Welcome to Tech Tutor.', false),
+(4, 3, 4, 2, 'Hello, ! Welcome to Tech Tutor.', false);
+
+-- Intrebarea 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (1, 5, 2,
+'How does Java represent the "else if" condition in an if-else statement?',
+1);
+
+-- Raspunsurile pentru Intrebarea 1
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 1, 5, 2, 'elif', false),
+(2, 1, 5, 2, 'elseif', false),
+(3, 1, 5, 2, 'else if', true),
+(4, 1, 5, 2, 'elseif()', false);
+
+-- Intrebarea 2
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (2, 5, 2,
+'What is the purpose of the nextInt() method in the line int num = scanner.nextInt();?',
+1);
+
+-- Raspunsurile pentru Intrebarea 2
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 2, 5, 2, 'To check if the input is an integer', false),
+(2, 2, 5, 2, 'To convert the input to a string', false),
+(3, 2, 5, 2, 'To convert the input to an integer', true),
+(4, 2, 5, 2, 'To display a prompt to the user', false);
+
+-- Intrebarea 3
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (3, 5, 2,
+'What message is displayed if the user enters the number 0 in the program?',
+1);
+
+-- Raspunsurile pentru Intrebarea 3
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 3, 5, 2, 'The number is positive.', false),
+(2, 3, 5, 2, 'The number is negative.', false),
+(3, 3, 5, 2, 'The number is zero.', true),
+(4, 3, 5, 2, 'No message is displayed.', false);
+
+-- Intrebarea 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (1, 6, 2,
+'Which loop is used to iterate over a sequence of numbers in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 1
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 1, 6, 2, 'for loop', true),
+(2, 1, 6, 2, 'while loop', false),
+(3, 1, 6, 2, 'do-while loop', false),
+(4, 1, 6, 2, 'repeat-until loop', false);
+
+-- Intrebarea 2
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (2, 6, 2,
+'What is the purpose of the loop control variable i in the line for (int i = 0; i < 5; i++)?',
+1);
+
+-- Raspunsurile pentru Intrebarea 2
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 2, 6, 2, 'To define the starting value of the loop', true),
+(2, 2, 6, 2, 'To define the ending condition of the loop', false),
+(3, 2, 6, 2, 'To increment the loop variable', false),
+(4, 2, 6, 2, 'To access the current iteration value', false);
+
+-- Intrebarea 3
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (3, 6, 2,
+'How does the while loop determine when to stop iterating?',
+1);
+
+-- Raspunsurile pentru Intrebarea 3
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 3, 6, 2, 'By counting the number of iterations', false),
+(2, 3, 6, 2, 'By checking if a condition is true', true),
+(3, 3, 6, 2, 'By reaching a predefined limit', false),
+(4, 3, 6, 2, 'By executing a fixed number of iterations', false);
+
+
+-- Intrebarea 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (1, 7, 2,
+'What is the main difference between arrays and ArrayLists in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 1
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 1, 7, 2, 'Arrays have a fixed size, while ArrayLists can dynamically resize.', true),
+(2, 1, 7, 2, 'Arrays can store multiple data types, while ArrayLists can only store one data type.', false),
+(3, 1, 7, 2, 'Arrays can only store primitive data types, while ArrayLists can store objects.', false),
+(4, 1, 7, 2, 'Arrays are more efficient in terms of memory usage compared to ArrayLists.', false);
+
+-- Intrebarea 2
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (2, 7, 2,
+'How do you access elements of an array in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 2
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 2, 7, 2, 'Using index notation (array[index])', true),
+(2, 2, 7, 2, 'Using the get() method', false),
+(3, 2, 7, 2, 'Using the retrieve() method', false),
+(4, 2, 7, 2, 'Using the elementAt() method', false);
+
+-- Intrebarea 3
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (3, 7, 2,
+'Which method is used to add elements to an ArrayList in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 3
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 3, 7, 2, 'add()', true),
+(2, 3, 7, 2, 'insert()', false),
+(3, 3, 7, 2, 'put()', false),
+(4, 3, 7, 2, 'append()', false);
+
+-- Intrebarea 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (1, 8, 2,
+'What is a class in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 1
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 1, 8, 2, 'A blueprint for creating objects', true),
+(2, 1, 8, 2, 'An instance of an object', false),
+(3, 1, 8, 2, 'A method that defines behavior', false),
+(4, 1, 8, 2, 'A primitive data type', false);
+
+-- Intrebarea 2
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (2, 8, 2,
+'What is the purpose of a constructor in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 2
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 2, 8, 2, 'To instantiate objects', true),
+(2, 2, 8, 2, 'To create methods', false),
+(3, 2, 8, 2, 'To define attributes', false),
+(4, 2, 8, 2, 'To encapsulate data', false);
+
+-- Intrebarea 3
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (3, 8, 2,
+'What is the main advantage of inheritance in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 3
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 3, 8, 2, 'Code reuse and extensibility', true),
+(2, 3, 8, 2, 'Improved performance', false),
+(3, 3, 8, 2, 'Tight coupling of classes', false),
+(4, 3, 8, 2, 'Enhanced security', false);
+
+-- Intrebarea 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (1, 9, 2,
+'What is an exception in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 1
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 1, 9, 2, 'An error that occurs during runtime', true),
+(2, 1, 9, 2, 'An error that occurs during compilation', false),
+(3, 1, 9, 2, 'A warning issued by the compiler', false),
+(4, 1, 9, 2, 'A logical error in the code', false);
+
+-- Intrebarea 2
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (2, 9, 2,
+'What is the purpose of a try-catch block in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 2
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 2, 9, 2, 'To handle exceptions', true),
+(2, 2, 9, 2, 'To define a method', false),
+(3, 2, 9, 2, 'To instantiate objects', false),
+(4, 2, 9, 2, 'To define attributes', false);
+
+-- Intrebarea 3
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (3, 9, 2,
+'Which method is used to retrieve the error message associated with an exception object in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 3
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 3, 9, 2, 'getMessage()', true),
+(2, 3, 9, 2, 'getError()', false),
+(3, 3, 9, 2, 'toString()', false),
+(4, 3, 9, 2, 'printStackTrace()', false);
+
+
+
+
+-- Intrebarea 1
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (1, 10, 2,
+'What is file handling in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 1
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(1, 1, 10, 2, 'Managing files and directories in the file system', true),
+(2, 1, 10, 2, 'Creating directories in the file system', false),
+(3, 1, 10, 2, 'Writing code that handles exceptions related to files', false),
+(4, 1, 10, 2, 'Reading from and writing to files in the file system', false);
+
+-- Intrebarea 2
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (2, 10, 2,
+'Which class is used to write text to a file in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 2
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(5, 2, 10, 2, 'FileWriter', true),
+(6, 2, 10, 2, 'FileReader', false),
+(7, 2, 10, 2, 'File', false),
+(8, 2, 10, 2, 'TextFile', false);
+
+-- Intrebarea 3
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES (3, 10, 2,
+'How do you close a file writer or reader after performing file operations in Java?',
+1);
+
+-- Raspunsurile pentru Intrebarea 3
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES
+(9, 3, 10, 2, 'Using the close() method of the file object', true),
+(10, 3, 10, 2, 'Automatically closed by the Java runtime', false),
+(11, 3, 10, 2, 'Using the flush() method of the file object', false),
+(12, 3, 10, 2, 'By setting the file object to null', false);
+
+
+
+
+
+
+
+
+
+
+-- Inserare întrebări
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES 
+    (1, 1, 3, 'Who is the creator of the Python programming language?', 1),
+    (2, 1, 3, 'What is one of the key characteristics of Python''s syntax?', 1),
+    (3, 1, 3, 'Which of the following is NOT a common application of Python?', 1);
+
+-- Inserare răspunsuri
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES 
+    -- Răspunsuri pentru întrebarea 1
+    (1, 1, 1, 3, 'Dennis Ritchie', FALSE),
+    (2, 1, 1, 3, 'Guido van Rossum', TRUE),
+    (3, 1, 1, 3, 'James Gosling', FALSE),
+    (4, 1, 1, 3, 'Linus Torvalds', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 2
+    (1, 2, 1, 3, 'Complexity', FALSE),
+    (2, 2, 1, 3, 'Readability', TRUE),
+    (3, 2, 1, 3, 'Verbosity', FALSE),
+    (4, 2, 1, 3, 'Static typing', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 3
+    (1, 3, 1, 3, 'Web development', FALSE),
+    (2, 3, 1, 3, 'Artificial intelligence', FALSE),
+    (3, 3, 1, 3, 'Embedded systems programming', TRUE),
+    (4, 3, 1, 3, 'Data analysis', FALSE);
+
+
+-- Inserare întrebări
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES 
+    (1, 2, 3, 'Where can you download Python?', 1),
+    (2, 2, 3, 'Which operating systems is Python available for?', 1),
+    (3, 2, 3, 'What is an IDE?', 1);
+
+-- Inserare răspunsuri
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES 
+    -- Răspunsuri pentru întrebarea 1
+    (1, 1, 2, 3, 'python.com', FALSE),
+    (2, 1, 2, 3, 'python.net', FALSE),
+    (3, 1, 2, 3, 'python.org', TRUE),
+    (4, 1, 2, 3, 'python.io', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 2
+    (1, 2, 2, 3, 'Windows only', FALSE),
+    (2, 2, 2, 3, 'macOS only', FALSE),
+    (3, 2, 2, 3, 'Linux only', FALSE),
+    (4, 2, 2, 3, 'Windows, macOS, and Linux', TRUE),
+    
+    -- Răspunsuri pentru întrebarea 3
+    (1, 3, 2, 3, 'Integrated Documentation Environment', FALSE),
+    (2, 3, 2, 3, 'Interactive Development Environment', TRUE),
+    (3, 3, 2, 3, 'Integrated Development Environment', FALSE),
+    (4, 3, 2, 3, 'Interactive Documentation Environment', FALSE);
+
+
+
+-- Inserare întrebări
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES 
+    (1, 4, 3, 'How does Python define code blocks?', 1),
+    (2, 4, 3, 'What is the output of print("Name:", name) if name is "Alice"?', 1),
+    (3, 4, 3, 'Which data type is used to represent True or False values in Python?', 1);
+
+-- Inserare răspunsuri
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES 
+    -- Răspunsuri pentru întrebarea 1
+    (1, 1, 4, 3, 'Using braces {}', FALSE),
+    (2, 1, 4, 3, 'Using indentation', TRUE),
+    (3, 1, 4, 3, 'Using semicolons ;', FALSE),
+    (4, 1, 4, 3, 'Using keywords like begin and end', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 2
+    (1, 2, 4, 3, 'Name: Alice', FALSE),
+    (2, 2, 4, 3, 'Alice', TRUE),
+    (3, 2, 4, 3, 'Name: "Alice"', FALSE),
+    (4, 2, 4, 3, '"Alice"', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 3
+    (1, 3, 4, 3, 'int', FALSE),
+    (2, 3, 4, 3, 'float', FALSE),
+    (3, 3, 4, 3, 'str', FALSE),
+    (4, 3, 4, 3, 'bool', TRUE);
+
+-- Inserare întrebări
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES 
+    (1, 3, 3, 'What does the input() function do in Python?', 1),
+    (2, 3, 3, 'Which function is used to display output to the console in Python?', 1),
+    (3, 3, 3, 'What is the output of print("Hello,", name, "! Welcome to Tech Tutor.") if the user enters "Alice" as their name?', 1);
+
+-- Inserare răspunsuri
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES 
+    -- Răspunsuri pentru întrebarea 1
+    (1, 1, 3, 3, 'Displays output to the console', FALSE),
+    (2, 1, 3, 3, 'Reads input from the user', TRUE),
+    (3, 1, 3, 3, 'Declares variables', FALSE),
+    (4, 1, 3, 3, 'Performs arithmetic operations', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 2
+    (1, 2, 3, 3, 'print()', TRUE),
+    (2, 2, 3, 3, 'input()', FALSE),
+    (3, 2, 3, 3, 'read()', FALSE),
+    (4, 2, 3, 3, 'display()', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 3
+    (1, 3, 3, 3, 'Hello, Alice ! Welcome to Tech Tutor.', TRUE),
+    (2, 3, 3, 3, 'Hello, "Alice" ! Welcome to Tech Tutor.', FALSE),
+    (3, 3, 3, 3, 'Hello, Alice Welcome to Tech Tutor.', FALSE),
+    (4, 3, 3, 3, 'Hello, ! Welcome to Tech Tutor.', FALSE);
+
+-- Inserare întrebări
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES 
+    (1, 6, 3, 'How does Python represent the "else if" condition in an if-else statement?', 1),
+    (2, 6, 3, 'What is the purpose of the int() function in the line num = int(input("Enter a number: "))?', 1),
+    (3, 6, 3, 'What message is displayed if the user enters the number 0 in the program?', 1);
+
+-- Inserare răspunsuri
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES 
+    -- Răspunsuri pentru întrebarea 1
+    (1, 1, 6, 3, 'elif', TRUE),
+    (2, 1, 6, 3, 'elseif', FALSE),
+    (3, 1, 6, 3, 'else if', FALSE),
+    (4, 1, 6, 3, 'elseif()', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 2
+    (1, 2, 6, 3, 'To check if the input is an integer', FALSE),
+    (2, 2, 6, 3, 'To convert the input to a string', FALSE),
+    (3, 2, 6, 3, 'To convert the input to an integer', TRUE),
+    (4, 2, 6, 3, 'To display a prompt to the user', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 3
+    (1, 3, 6, 3, 'The number is positive.', FALSE),
+    (2, 3, 6, 3, 'The number is negative.', FALSE),
+    (3, 3, 6, 3, 'The number is zero.', TRUE),
+    (4, 3, 6, 3, 'No message is displayed.', FALSE);
+
+
+-- Inserare întrebări
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES 
+    (1, 5, 3, 'Which loop is used to iterate over a sequence of numbers in Python?', 1),
+    (2, 5, 3, 'What is the purpose of the range(5) function in the line for i in range(5):?', 1),
+    (3, 5, 3, 'How does the while loop determine when to stop iterating?', 1);
+
+-- Inserare răspunsuri
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES 
+    -- Răspunsuri pentru întrebarea 1
+    (1, 1, 5, 3, 'for loop', TRUE),
+    (2, 1, 5, 3, 'while loop', FALSE),
+    (3, 1, 5, 3, 'do-while loop', FALSE),
+    (4, 1, 5, 3, 'repeat-until loop', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 2
+    (1, 2, 5, 3, 'To generate a sequence of numbers from 0 to 5', TRUE),
+    (2, 2, 5, 3, 'To generate a sequence of numbers from 1 to 5', FALSE),
+    (3, 2, 5, 3, 'To generate a sequence of even numbers from 0 to 5', FALSE),
+    (4, 2, 5, 3, 'To generate a sequence of odd numbers from 0 to 5', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 3
+    (1, 3, 5, 3, 'By counting the number of iterations', FALSE),
+    (2, 3, 5, 3, 'By checking if a condition is true', TRUE),
+    (3, 3, 5, 3, 'By reaching a predefined limit', FALSE),
+    (4, 3, 5, 3, 'By executing a fixed number of iterations', FALSE);
+
+
+-- Inserare întrebări
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES 
+    (1, 7, 3, 'What is a list comprehension in Python?', 1),
+    (2, 7, 3, 'How do you access elements of a list in Python?', 1),
+    (3, 7, 3, 'What does the following list comprehension do: [x ** 2 for x in numbers] if numbers is [1, 2, 3, 4, 5]?', 1);
+
+-- Inserare răspunsuri
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES 
+    -- Răspunsuri pentru întrebarea 1
+    (1, 1, 7, 3, 'A concise way to create lists based on existing sequences or iterables', TRUE),
+    (2, 1, 7, 3, 'A way to define functions for operating on lists', FALSE),
+    (3, 1, 7, 3, 'A syntax error in Python', FALSE),
+    (4, 1, 7, 3, 'A method to concatenate multiple lists together', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 2
+    (1, 2, 7, 3, 'Using parentheses ()', FALSE),
+    (2, 2, 7, 3, 'Using curly braces {}', FALSE),
+    (3, 2, 7, 3, 'Using square brackets []', TRUE),
+    (4, 2, 7, 3, 'Using angle brackets <>', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 3
+    (1, 3, 7, 3, 'Squares each element in the list numbers', TRUE),
+    (2, 3, 7, 3, 'Generates a list of squares from 1 to 5', FALSE),
+    (3, 3, 7, 3, 'Multiplies each element in numbers by itself', FALSE),
+    (4, 3, 7, 3, 'Calculates the sum of squares of elements in numbers', FALSE);
+
+-- Inserare întrebări
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES 
+    (1, 8, 3, 'What is the purpose of functions in Python?', 1),
+    (2, 8, 3, 'How do you import a module in Python?', 1),
+    (3, 8, 3, 'What does the following code snippet do: print("Square root of 16:", math.sqrt(16))?', 1);
+
+-- Inserare răspunsuri
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES 
+    -- Răspunsuri pentru întrebarea 1
+    (1, 1, 8, 3, 'To perform a specific task and provide code reusability', TRUE),
+    (2, 1, 8, 3, 'To organize related functions and variables into separate files', FALSE),
+    (3, 1, 8, 3, 'To import external code libraries', FALSE),
+    (4, 1, 8, 3, 'To define classes and objects', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 2
+    (1, 2, 8, 3, 'Using the include keyword', FALSE),
+    (2, 2, 8, 3, 'Using the require keyword', FALSE),
+    (3, 2, 8, 3, 'Using the import statement', TRUE),
+    (4, 2, 8, 3, 'Using the from statement', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 3
+    (1, 3, 8, 3, 'Prints the string "Square root of 16:" followed by the square root of 16', TRUE),
+    (2, 3, 8, 3, 'Prints the square root of 16', FALSE),
+    (3, 3, 8, 3, 'Prints the square of 16', FALSE),
+    (4, 3, 8, 3, 'Raises 16 to the power of 0.5', FALSE);
+
+-- Inserare întrebări
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES 
+    (1, 9, 3, 'What is a dictionary in Python?', 1),
+    (2, 9, 3, 'How do you add an element to a set in Python?', 1),
+    (3, 9, 3, 'What is the output of print("Student:", student) if student is {"name": "Alice", "age": 25, "major": "Computer Science"}?', 1);
+
+-- Inserare răspunsuri
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES 
+    -- Răspunsuri pentru întrebarea 1
+    (1, 1, 9, 3, 'A data structure used to store key-value pairs', TRUE),
+    (2, 1, 9, 3, 'A data structure used to store a collection of unique elements', FALSE),
+    (3, 1, 9, 3, 'A data structure used to store ordered elements', FALSE),
+    (4, 1, 9, 3, 'A data structure used to store elements in a specific order', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 2
+    (1, 2, 9, 3, 'Using the append() method', FALSE),
+    (2, 2, 9, 3, 'Using the insert() method', FALSE),
+    (3, 2, 9, 3, 'Using the add() method', TRUE),
+    (4, 2, 9, 3, 'Using the update() method', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 3
+    (1, 3, 9, 3, 'Student: {"name": "Alice", "age": 25, "major": "Computer Science"}', FALSE),
+    (2, 3, 9, 3, 'Student: name: Alice, age: 25, major: Computer Science', FALSE),
+    (3, 3, 9, 3, 'Student: {"Alice", 25, "Computer Science"}', FALSE),
+    (4, 3, 9, 3, 'Student: Alice, 25, Computer Science', TRUE);
+
+-- Inserare întrebări
+INSERT INTO Questions (idQuestion, idLesson, idLearningPath, questionText, points)
+VALUES 
+    (1, 10, 3, 'How do you open a file for writing in Python?', 1),
+    (2, 10, 3, 'What is the purpose of the with statement in file handling?', 1),
+    (3, 10, 3, 'What does file.read() do in Python?', 1);
+
+-- Inserare răspunsuri
+INSERT INTO Answers (idAnswer, idQuestion, idLesson, idLearningPath, answerText, correct)
+VALUES 
+    -- Răspunsuri pentru întrebarea 1
+    (1, 1, 10, 3, 'open("file.txt", "write")', FALSE),
+    (2, 1, 10, 3, 'open("file.txt", "w")', TRUE),
+    (3, 1, 10, 3, 'open("file.txt", "r")', FALSE),
+    (4, 1, 10, 3, 'open("file.txt", "read")', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 2
+    (1, 2, 10, 3, 'To ensure that the file is opened in write mode', FALSE),
+    (2, 2, 10, 3, 'To ensure that the file is opened in read mode', FALSE),
+    (3, 2, 10, 3, 'To ensure that the file is properly closed after operations are completed', TRUE),
+    (4, 2, 10, 3, 'To ensure that the file is read line by line', FALSE),
+    
+    -- Răspunsuri pentru întrebarea 3
+    (1, 3, 10, 3, 'Writes content to a file', FALSE),
+    (2, 3, 10, 3, 'Reads content from a file', TRUE),
+    (3, 3, 10, 3, 'Appends content to a file', FALSE),
+    (4, 3, 10, 3, 'Deletes content from a file', FALSE);

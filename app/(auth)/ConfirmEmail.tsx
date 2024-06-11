@@ -8,27 +8,29 @@ import AppLogo from '@/components/AppLogo';
 import stylesView from '@/components/Styles';
 import { useNavigation } from '@react-navigation/native';
 
+//main component function
 const ConfirmEmail = () => {
     const [code, setCode] = useState('');
     const navigation = useNavigation();
     const { height } = useWindowDimensions();
 
+//function to handle the confirm button press
     const onConfirmPress = () => {
         console.warn("Sign Up");
     }
-
+//function to handle the sign in button press
     const onSignInPress = () => {
         console.warn("Sign In");
         navigation.navigate("SignIn");
     }
-
+//function to handle the resend button press
     const onResendPress = () => {
         console.warn("Resend code");
     }
-
+    //color scheme
     const colorScheme = useColorScheme();
     const generatedStyles = stylesView(); 
-    return (
+    return (//returning the view
         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={generatedStyles.root}>
                 <SafeAreaView style={[generatedStyles.bigView, { backgroundColor: Colors[colorScheme ?? 'light'].background }]}>

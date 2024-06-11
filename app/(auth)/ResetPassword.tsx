@@ -7,19 +7,19 @@ import CustomButton from '@/components/CustomButton';
 import AppLogo from '@/components/AppLogo';
 import stylesView from '@/components/Styles';
 import { useNavigation } from '@react-navigation/native';
-
+//main component function
 const ResetPassword = () => {
     const [code, setCode] = useState('');
     const [newPassword, setNewPassword] = useState('');
 
     const navigation = useNavigation();
     const { height } = useWindowDimensions();
-
+    //function to handle the sign in button press
     const onSignInPress = () => {
       //console.warn("Sign In");
       navigation.navigate("SignIn");
     }
-
+    //function to handle the submit button press
     const onSubmitPress = () => {
       console.warn("Submit");
     }

@@ -1,0 +1,128 @@
+INSERT INTO LearningPaths (name) VALUES ('C++ Programming');
+INSERT INTO LearningPaths (idLearningPath, name) VALUES (2, 'Java Learning Path');
+INSERT INTO Lessons (idLearningPath, name, content) VALUES
+(1, 'Introduction to C++ Programming', 'Welcome to Tech Tutor\s C++ programming course! C++ is a powerful and versatile programming language widely used for developing applications ranging from system software to video games. In this lesson, we will cover the basics of C++ and why it is a popular choice among developers.\n\nC++ was developed by Bjarne Stroustrup in the 1980s as an extension of the C programming language. It offers features like object-oriented programming, generic programming, and low-level memory manipulation. C++ is known for its efficiency, performance, and flexibility, making it suitable for a wide range of applications.'),
+(1, 'Setting Up Your Development Environment', 'Before you start writing C++ code, you need to set up your development environment. This includes installing a C++ compiler, an integrated development environment (IDE), and configuring your workspace. Let s walk through the steps to set up a basic C++ development environment on your computer.First, you will need to choose a C++ compiler. Some popular options include GCC (GNU Compiler Collection), Clang, and Microsoft Visual C++. Install the'),
+(1, 'Basic Syntax and Structure of C++ Programs', 
+'Now that you have set up your development environment, let s dive into the basic syntax and structure of C++ programs. Every C++ program consists of one or more functions, and the execution of a C++ program always starts from the main() function.\n\nHere s an example of a simple C++ program that prints "Hello, World!" to the console:\n\n#include <iostream>\n\nint main() {\n    std::cout << "Hello, World!" << std::endl;\n    return 0;\n}\n\nIn this program:\n\n#include <iostream> includes the input/output stream library.\nint main() is the main function where program execution begins.\nstd::cout << "Hello, World!" << std::endl; prints "Hello, World!" to the console.\nreturn 0; indicates that the program has executed successfully.\n\nUnderstanding the structure and syntax of C++ programs is essential for writing and debugging code effectively.'),
+(1, 'Variables and Data Types in C++', 
+'In C++, variables are used to store data temporarily during program execution. Each variable has a data type, which defines the type of data it can hold (such as integers, floating-point numbers, characters, etc.). Let s explore some common data types and how to declare variables in C++.\n\n#include <iostream>\n\nint main() {\n    // Integer variable\n    int age = 25;\n    \n    // Floating-point variable\n    double height = 175.5;\n    \n    // Character variable\n    char grade = \A\;\n    \n    // Boolean variable\n    bool isPassing = true;\n    \n    // Output variables\n    std::cout << "Age: " << age << std::endl;\n    std::cout << "Height: " << height << std::endl;\n    std::cout << "Grade: " << grade << std::endl;\n    std::cout << "Passing: " << isPassing << std::endl;\n    \n    return 0;\n}\n\nIn this program:\n\nint, double, char, and bool are different data types.\nage, height, grade, and isPassing are variables of corresponding data types.\nstd::cout is used to output the values of variables to the console.\n\nUnderstanding variables and data types is fundamental for working with data in C++ programs.'),
+(1, 'Input and Output Operations in C++', 
+'In C++, input and output operations are performed using the input/output stream library (<iostream>). This allows you to interact with users by reading input from the keyboard and displaying output to the console. Let\s learn how to perform basic input and output operations in C++.\n\n#include <iostream>\n\nint main() {\n    // Output\n    std::cout << "Enter your age: ";\n    \n    // Input\n    int age;\n    std::cin >> age;\n    \n    // Output\n    std::cout << "Your age is: " << age << std::endl;\n    \n    return 0;\n}\n\nIn this program:\n\nstd::cout is used to display a prompt to the user.\nstd::cin is used to read input from the user.\nThe value entered by the user is stored in the variable age.\nThe entered age is then displayed back to the user using std::cout.\n\nInput and output operations are essential for creating interactive programs in C++.'),
+(1, 'Control Flow: Decision Making with If-Else Statements', 
+'In C++, decision-making is implemented using conditional statements such as if-else statements. These statements allow you to execute different blocks of code based on certain conditions. Let s explore how to use if-else statements in C++.\n\n#include <iostream>\n\nint main() {\n    int num;\n    \n    std::cout << "Enter a number: ";\n    std::cin >> num;\n    \n    // Check if the number is positive\n    if (num > 0) {\n        std::cout << "The number is positive." << std::endl;\n    }\n    // Check if the number is negative\n    else if (num < 0) {\n        std::cout << "The number is negative." << std::endl;\n    }\n    // If the number is neither positive nor negative, it must be zero\n    else {\n        std::cout << "The number is zero." << std::endl;\n    }\n    \n    return 0;\n}\n\nIn this program:\n\nThe user is prompted to enter a number using std::cout.\nThe entered number is stored in the variable num using std::cin.\nThe if-else statements check whether the number is positive, negative, or zero.\nThe appropriate message is displayed based on the condition.\n\nUnderstanding if-else statements is crucial for implementing logic and decision-making in C++ programs.'),
+(1, 'Loops: Iterating through Code with For and While Loops', 
+' In C++, loops are used to execute a block of code repeatedly. There are two main types of loops: for loops and while loops. Let s explore how to use for and while loops in C++.\n\n#include <iostream>\nint main() {\n    // Example of a for loop\n    for (int i = 0; i < 5; i++) {\n        std::cout << i << std::endl;\n    }\n    \n    // Example of a while loop\n    int num = 0;\n    while (num < 5) {\n        std::cout << num << std::endl;\n        num++;\n    }\n    \n    return 0;\n}\n\nIn this example:\n\nThe for loop iterates over a sequence of numbers from 0 to 4 and prints each number.\nThe while loop executes the code block as long as the condition num < 5 is true, printing the value of num in each iteration.\n\nUnderstanding loops is essential for implementing repetitive tasks and iterating through data in C++ programs.'),
+(1, 'Functions and Modular Programming in C++', 
+'In C++, functions are used to group code into logical units that can be reused and organized. In this lesson, we will explore how to define and call functions in C++, as well as understand the concept of modular programming.\n\n#include <iostream>\n\n// Function declaration\nvoid greet() {\n    std::cout << "Hello, welcome to Tech Tutor!" << std::endl;\n}\n\nint add(int a, int b) {\n    return a + b;\n}\n\nint main() {\n    // Calling the greet() function\n    greet();\n    \n    // Calling the add() function\n    int result = add(5, 3);\n    std::cout << "5 + 3 = " << result << std::endl;\n    \n    return 0;\n}\n\nIn this example:\n\ngreet() is a function that prints a greeting message.\nadd() is a function that takes two parameters a and b, and returns their sum.\nBoth functions are called from the main() function.\n\nUnderstanding functions is essential for writing modular and reusable code in C++.'),
+(1, 'Arrays and Pointers in C++', 
+'In C++, arrays and pointers are fundamental concepts used for storing and manipulating data. Arrays represent a collection of elements of the same data type, while pointers store store memory addresses. Let s explore how to work with arrays and pointers in C++.'),
+(1, 'Object-Oriented Programming (OOP) Concepts in C++',
+'C++ is an object-oriented programming (OOP) language, which means it focuses on creating objects that encapsulate data and behavior. In this lesson, we''ll explore the core concepts of OOP in C++, including classes, objects, inheritance, polymorphism, and encapsulation.
+#include <iostream>
+
+// Class declaration
+class Person {
+    std::string name;
+    int age;
+    
+public:
+    // Constructor
+    Person(std::string n, int a) {
+        name = n;
+        age = a;
+    }
+    
+    // Method to display information
+    void display() {
+        std::cout << "Name: " << name << ", Age: " << age << std::endl;
+    }
+};
+
+int main() {
+    // Creating an object of the Person class
+    Person person1("Alice", 30);
+    
+    // Calling the display method
+    person1.display();
+    
+    return 0;
+}
+
+In this example:
+
+Person is a class with name and age as private member variables.
+A constructor is used to initialize the member variables when an object is created.
+The display() method is used to display information about a person object.
+Understanding OOP concepts is essential for designing and building complex applications in C++.');
+
+
+-- Inserting Lesson 1: Introduction to Java Programming
+INSERT INTO Lessons (idLesson, idLearningPath, name, content) 
+VALUES (1, 2, 'Introduction to Java Programming', 
+'Welcome to Tech Tutor''s Java programming course! Java is a versatile and widely-used programming language known for its platform independence and robustness. In this lesson, we''ll introduce you to the basics of Java and why it''s such a popular choice among developers.\n\nJava was developed by James Gosling at Sun Microsystems in the mid-1990s. It is an object-oriented programming language that emphasizes simplicity, reliability, and portability. Java programs are compiled to bytecode, which can run on any Java Virtual Machine (JVM), making them platform-independent.');
+
+-- Inserting Lesson 2: Setting Up Your Java Development Environment
+INSERT INTO Lessons (idLesson, idLearningPath, name, content) 
+VALUES (2, 2, 'Setting Up Your Java Development Environment', 
+'Before you start writing Java code, you''ll need to set up your development environment. In this lesson, we''ll walk you through the steps to install the Java Development Kit (JDK) and choose an Integrated Development Environment (IDE) to write and run your Java code.\n\nFirst, you''ll need to download and install the JDK from the official website (oracle.com/java). Choose the appropriate JDK version for your operating system (Windows, macOS, or Linux) and follow the installation instructions provided on the website.\n\nOnce the JDK is installed, you can choose an IDE to write your Java code. Some popular options include IntelliJ IDEA, Eclipse, and NetBeans. Download and install the IDE of your choice, and you''ll be ready to start coding in Java!');
+
+-- Inserting Lesson 3: Basic Syntax and Variables in Java
+INSERT INTO Lessons (idLesson, idLearningPath, name, content) 
+VALUES (3, 2, 'Basic Syntax and Variables in Java', 
+'Now that you have set up your Java environment, let''s dive into the basic syntax and variables in Java. Java programs are structured using classes and methods, and statements are terminated with a semicolon. Let''s explore how to declare variables and perform basic operations in Java.\n\npublic class HelloWorld {\n    public static void main(String[] args) {\n        // Declare variables\n        String name = "Alice";\n        int age = 30;\n        double height = 175.5;\n        boolean isStudent = true;\n        \n        // Output variables\n        System.out.println("Name: " + name);\n        System.out.println("Age: " + age);\n        System.out.println("Height: " + height);\n        System.out.println("Is student: " + isStudent);\n    }\n}\nIn this example:\n\nThe main() method is the entry point of the program.\nname, age, height, and isStudent are variables of different data types.\nSystem.out.println() is used to display the values of variables to the console.\nUnderstanding the basic syntax and variables in Java is essential for writing and understanding Java code.');
+
+-- Inserting Lesson 4: Input and Output Operations in Java
+INSERT INTO Lessons (idLesson, idLearningPath, name, content) 
+VALUES (4, 2, 'Input and Output Operations in Java', 
+'In Java, you can interact with users by reading input from the keyboard and displaying output to the console. This is done using the Scanner class to read input and the System.out.println() method to display output. Let''s explore how to perform basic input and output operations in Java.\n\nimport java.util.Scanner;\n\npublic class InputOutputExample {\n    public static void main(String[] args) {\n        // Create a Scanner object\n        Scanner scanner = new Scanner(System.in);\n        \n        // Read input from the user\n        System.out.print("Enter your name: ");\n        String name = scanner.nextLine();\n        \n        // Display output to the user\n        System.out.println("Hello, " + name + "! Welcome to Tech Tutor.");\n        \n        // Close the scanner\n        scanner.close();\n    }\n}\n\nIn this example:\n\nThe Scanner class is used to read input from the user.\nThe nextLine() method reads a line of text entered by the user.\nThe entered name is displayed back to the user using System.out.println().\nInput and output operations are essential for creating interactive programs in Java.');
+
+-- Inserting Lesson 5: Control Flow: Decision Making with If-Else Statements
+-- Inserting Lesson 5: Control Flow: Decision Making with If-Else Statements
+INSERT INTO Lessons (idLesson, idLearningPath, name, content) 
+VALUES (5, 2, 'Control Flow: Decision Making with If-Else Statements', 
+'In Java, decision-making is implemented using conditional statements such as if-else statements. These statements allow you to execute different blocks of code based on certain conditions. Let''s explore how to use if-else statements in Java.\n\nimport java.util.Scanner;\n\npublic class PositiveNegativeZero {\n    public static void main(String[] args) {\n        // Create a Scanner object\n        Scanner scanner = new Scanner(System.in);\n        \n        // Read input from the user\n        System.out.print("Enter a number: ");\n        int num = scanner.nextInt();\n        \n        // Check if the number is positive, negative, or zero\n        if (num > 0) {\n            System.out.println("The number is positive.");\n        } else if (num < 0) {\n            System.out.println("The number is negative.");\n        } else {\n            System.out.println("The number is zero.");\n        }\n        \n        // Close the scanner\n        scanner.close();\n    }\n}');
+
+-- Inserting Lesson 6: Loops: Iterating through Code with For and While Loops
+INSERT INTO Lessons (idLesson, idLearningPath, name, content) 
+VALUES (6, 2, 'Loops: Iterating through Code with For and While Loops', 
+'In Java, loops are used to execute a block of code repeatedly. There are two main types of loops: for loops and while loops. Let s explore how to use for and while loops in Java.\n\npublic class LoopExample {\n    public static void main(String[] args) {\n        // Example of a for loop\n        for (int i = 0; i < 5; i++) {\n            System.out.println(i);\n        }\n        \n        // Example of a while loop\n        int num = 0;\n        while (num < 5) {\n            System.out.println(num);\n            num++;\n        }\n    }\n}');
+
+-- Inserting Lesson 7: Arrays and ArrayLists in Java
+INSERT INTO Lessons (idLesson, idLearningPath, name, content) 
+VALUES (7, 2, 'Arrays and ArrayLists in Java', 
+'In Java, arrays and ArrayLists are used to store multiple values of the same data type. Arrays have a fixed size, while ArrayLists can dynamically resize. Let''s explore how to declare, initialize, and manipulate arrays and ArrayLists in Java.\n\npublic class ArrayExample {\n    public static void main(String[] args) {\n        // Example of an array\n        int[] numbers = {1, 2, 3, 4, 5};\n        \n        // Accessing elements of an array\n        System.out.println("Element at index 0: " + numbers[0]);\n        \n        // Example of an ArrayList\n        ArrayList<String> names = new ArrayList<>();\n        \n        // Adding elements to an ArrayList\n        names.add("Alice");\n        names.add("Bob");\n        names.add("Charlie");\n        \n        // Accessing elements of an ArrayList\n        System.out.println("First name: " + names.get(0));\n    }\n}');
+
+-- Inserting Lesson 8: Object-Oriented Programming (OOP) Concepts in Java
+INSERT INTO Lessons (idLesson, idLearningPath, name, content) 
+VALUES (8, 2, 'Object-Oriented Programming (OOP) Concepts in Java', 
+'Java is an object-oriented programming (OOP) language, which means it focuses on creating objects that encapsulate data and behavior. In this lesson, we''ll explore the core concepts of OOP in Java, including classes, objects, inheritance, polymorphism, and encapsulation.\n\n// Example of a class\nclass Person {\n    String name;\n    int age;\n    \n    // Constructor\n    public Person(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n    \n    // Method\n    public void greet() {\n        System.out.println("Hello, my name is " + name + " and I am " + age + " years old.");\n    }\n}\n\npublic class OOPExample {\n    public static void main(String[] args) {\n        // Creating an object of the Person class\n        Person person1 = new Person("Alice", 30);\n        \n        // Calling a method on the object\n        person1.greet();\n    }\n}');
+
+-- Inserting Lesson 9: Exception Handling in Java
+INSERT INTO Lessons (idLesson, idLearningPath, name, content) 
+VALUES (9, 2, 'Exception Handling in Java', 
+'Exception handling is a mechanism in Java to handle runtime errors gracefully. In this lesson, we''ll explore how to use try-catch blocks to handle exceptions and ensure robustness in Java programs.\n\npublic class ExceptionExample {\n    public static void main(String[] args) {\n        try {\n            // Code that may throw an exception\n            int result = 10 / 0;\n        } catch (ArithmeticException e) {\n            // Handle the exception\n            System.out.println("An arithmetic exception occurred: " + e.getMessage());\n        }\n    }\n}');
+
+-- Inserting Lesson 10: File Handling in Java
+INSERT INTO Lessons (idLesson, idLearningPath, name, content) 
+VALUES (10, 2, 'File Handling in Java', 
+'File handling is a common task in programming, and Java provides built-in classes and methods to read from and write to files. In this lesson, we''ll explore how to perform file handling operations in Java, including reading from and writing to text files.\n\nimport java.io.File;\nimport java.io.FileWriter;\nimport java.io.FileReader;\nimport java.io.IOException;\n\npublic class FileHandlingExample {\n    public static void main(String[] args) {\n        try {\n            // Writing to a file\n            FileWriter writer = new FileWriter("example.txt");\n            writer.write("Hello, world!");\n            writer.close();\n            \n            // Reading from a file\n            FileReader reader = new FileReader("example.txt");\n            int character;\n            while ((character = reader.read()) != -1) {\n                System.out.print((char) character);\n            }\n            reader.close();\n        } catch (IOException e) {\n            System.out.println("An error occurred: " + e.getMessage());\n        }\n    }\n}');
+
+
+-- Inserare Traseu de Învățare
+INSERT INTO LearningPaths (idLearningPath, name)
+VALUES (3, 'Python Mastery');
+
+-- Inserare Lecții
+INSERT INTO Lessons (idLesson, idLearningPath, name, content)
+VALUES 
+    (1, 3, 'Introduction to Python Programming', 'Welcome to Tech Tutor''s Python programming course! Python is a versatile and beginner-friendly programming language used for a wide range of applications, including web development, data analysis, artificial intelligence, and more. In this lesson, we''ll introduce you to the basics of Python and why it''s such a popular choice among developers.'),
+    (2, 3, 'Setting Up Your Python Environment', 'Before you start writing Python code, you''ll need to set up your development environment. In this lesson, we''ll walk you through the steps to install Python and choose a code editor or integrated development environment (IDE) to write and run your Python code. First, you''ll need to download and install Python from the official website (python.org). Python is available for various operating systems, including Windows, macOS, and Linux. Follow the installation instructions provided on the website for your specific operating system. Once Python is installed, you can choose a code editor or IDE to write your Python code. Some popular options include Visual Studio Code, PyCharm, and Jupyter Notebook. Download and install the editor or IDE of your choice, and you''ll be ready to start coding in Python!'),
+    (3, 3, 'Basic Syntax and Variables in Python', 'Now that you have set up your Python environment, let''s dive into the basic syntax and variables in Python. Python uses indentation to define code blocks, and statements are typically written on separate lines. Let''s explore how to declare variables and perform basic operations in Python.'),
+    (4, 3, 'Input and Output Operations in Python', 'In Python, you can interact with users by reading input from the keyboard and displaying output to the console. This is done using the input() function to read input and the print() function to display output. Let''s explore how to perform basic input and output operations in Python.'),
+    (5, 3, 'Control Flow: Decision Making with If-Else Statements', 'In Python, decision-making is implemented using conditional statements such as if-else statements. These statements allow you to execute different blocks of code based on certain conditions. Let''s explore how to use if-else statements in Python.'),
+    (6, 3, 'Loops: Iterating through Code with For and While Loops', 'In Python, loops are used to execute a block of code repeatedly. There are two main types of loops: for loops and while loops. Let''s explore how to use for and while loops in Python.'),
+    (7, 3, 'Lists and List Comprehensions in Python', 'In Python, lists are a versatile data structure used to store collections of items. List comprehensions provide a concise way to create lists based on existing sequences or iterables. Let''s explore how to work with lists and utilize list comprehensions in Python.'),
+    (8, 3, 'Functions and Modules in Python', 'In Python, functions are reusable blocks of code that perform a specific task. Modules allow you to organize related functions and variables into separate files for better code organization. Let''s explore how to define functions, import modules, and use them in Python.'),
+    (9, 3, 'Dictionaries and Sets in Python', 'In Python, dictionaries and sets are powerful data structures used to store collections of unique and unordered elements. Dictionaries store key-value pairs, while sets store unique elements without any duplicates. Let''s explore how to work with dictionaries and sets in Python.'),
+    (10, 3, 'File Handling in Python', 'In Python, file handling allows you to read from and write to files on your computer. This is useful for tasks such as reading data from external files or storing data for later use. Let''s explore how to perform file handling operations in Python.');
