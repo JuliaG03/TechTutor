@@ -51,11 +51,14 @@ The app offers a diverse range of learning paths covering programming languages,
 - As a friend, I want to be able to request a heart/life from another friend so that I can continue learning.
 
 ## UML Diagram
+
 ![UserFlow](https://github.com/JuliaG03/TechTutor/blob/main/User%20Flow.png?raw=true)
 
+
+![Diagram](https://github.com/JuliaG03/TechTutor/blob/main/diagrams/DiagramaER.png?raw=true)
 ## Demo
 
-Insert gif or link to demo
+[demo](https://youtu.be/Hkj0sGgRmV8)
 
 
 ## Screenshots
@@ -81,16 +84,16 @@ Insert gif or link to demo
 ![Profile](https://github.com/JuliaG03/TechTutor/blob/main/screenshots/profile.jpeg?raw=true)
 
 #### Support Screen
-![Support](https://github.com/JuliaG03/TechTutor/blob/main/screenshots/support.jpeg?raw=true)
+![Support](https://github.com/JuliaG03/TechTutor/blob/main/ss2/support.jpeg?raw=true)
 
 #### Learning Paths Screens 
-![LearningPaths](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![LearningPaths](https://github.com/JuliaG03/TechTutor/blob/main/ss2/learningpaths.jpeg?raw=true)
 
 #### Lessons from Learning Path Screen
-![Lessons](https://github.com/JuliaG03/TechTutor/blob/main/screenshots/lessons.jpeg?raw=true)
+![Lessons](https://github.com/JuliaG03/TechTutor/blob/main/ss2/pythlearningpath.jpeg?raw=true)
 
 #### Lesson Screen
-![Lesson](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Lesson](https://github.com/JuliaG03/TechTutor/blob/main/ss2/lesson%20(2).jpeg?raw=true)
 
 ####  About Screen
 
