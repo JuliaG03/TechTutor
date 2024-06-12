@@ -1,7 +1,7 @@
 import { createContext, useEffect, useContext, useState, PropsWithChildren } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Session } from '@supabase/supabase-js';
-
+import {Alert} from 'react-native';
 interface LearningPath {
     idlearningpath: number;
     name: string;
@@ -19,7 +19,7 @@ interface Question {
     idquestion: number;
     idlesson: number;
     idlearningpath: number;
-    questionText: string;
+    questiontext: string;
     points: number;
 }
 
@@ -52,6 +52,7 @@ type AuthData = {
     setSession: (session: Session | null) => void;
     updateUserData: (newUserData: Partial<UserData>) => void;
     userDidLesson: (idlesson: number, idlearningpath: number) => void;
+    loseLife: () => void;
     learningPaths?: LearningPath[];
     lessons?: Lesson[];
     questions?: Question[];
@@ -68,6 +69,7 @@ const AuthContext = createContext<AuthData>({
     setSession: () => { },
     updateUserData: () => { },
     userDidLesson: () => { },
+    loseLife: () => { },
     learningPaths: [],
     lessons: [],
     questions: [],
@@ -194,7 +196,7 @@ export default function AuthProvider({ children }: PropsWithChildren) {
         if (userData) {
             const updatedUserData = { ...userData, ...newUserData };
             setUserData(updatedUserData);
-
+            Alert.alert("Information updated!");
             try {
                 const { error } = await supabase
                     .from('users')
@@ -212,24 +214,67 @@ export default function AuthProvider({ children }: PropsWithChildren) {
         }
     };
     
-    const userDidLesson = async (idlesson: number, idlearningpath: number) => {
+    const loseLife = async () => {
         try {
-            if (userData) {
-                const { data, error } = await supabase
-                    .from('userlesson')
-                    .insert([{ iduser: userData.id, idlesson, idlearningpath }]);
+            if (userData && userData.lives && userData.lives > 0) {
+                const updatedLives = userData.lives - 1; // Scade un punct din viață
+                updateUserData({ lives: updatedLives }); // Actualizează viața în starea locală
+    
+                // Actualizează viața utilizatorului în baza de date
+                const { error } = await supabase
+                    .from('users')
+                    .update({ lives: updatedLives })
+                    .eq('id', userData.id);
     
                 if (error) {
                     throw error;
+                }
+            } else {
+                console.error('User has no lives left!');
+            }
+        } catch (error) {
+            console.error('Error updating user lives:', error);
+        }
+    };
+    
+    const userDidLesson = async (idlesson: number, idlearningpath: number) => {
+        try {
+            if (userData) {
+                // Actualizează scorul utilizatorului
+                const updatedScore = (userData.score || 0) + 10; // Adaugă 10 puncte
+                updateUserData({ score: updatedScore }); // Actualizează scorul în starea locală
+                
+                // Actualizează scorul utilizatorului în baza de date
+                const { error: scoreUpdateError } = await supabase
+                    .from('users')
+                    .update({ score: updatedScore })
+                    .eq('id', userData.id);
+    
+                if (scoreUpdateError) {
+                    throw scoreUpdateError;
+                }
+    
+                // Actualizează lista lecțiilor finalizate
+                const updatedCompletedLessons = [...completedLessons, { idlesson, idlearningpath }]; // Adaugă lecția finalizată în lista existentă
+                
+                setCompletedLessons(updatedCompletedLessons); // Actualizează lista lecțiilor finalizate în starea locală
+                
+                // Actualizează lista lecțiilor finalizate în baza de date
+                const { error: lessonsUpdateError } = await supabase
+                    .from('userlesson')
+                    .insert([{ iduser: userData.id, idlesson, idlearningpath }]);
+                    
+                if (lessonsUpdateError) {
+                    throw lessonsUpdateError;
                 }
             }
         } catch (error) {
             console.error('Error updating user did lesson:', error);
         }
     };
-
+    
     return (
-        <AuthContext.Provider value={{ session, loading, userData, updateUser, setSession, updateUserData, userDidLesson, learningPaths, lessons, questions, answers, completedLessons }}>
+        <AuthContext.Provider value={{ session, loading, userData, loseLife, updateUser, setSession, updateUserData, userDidLesson, learningPaths, lessons, questions, answers, completedLessons }}>
             {children}
         </AuthContext.Provider>
     );

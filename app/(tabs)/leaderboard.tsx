@@ -18,7 +18,7 @@ const Leaderboard = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const { data, error } = await supabase.from('users').select('*').order('score', { ascending: true });
+                const { data, error } = await supabase.from('users').select('*').order('score', { ascending: false });
                 if (error) {
                     throw error;
                 }

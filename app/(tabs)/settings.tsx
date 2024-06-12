@@ -7,11 +7,15 @@ import { useNavigation } from '@react-navigation/native';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { supabase } from '@/lib/supabase';
+import { useAuth } from '@/providers/AuthProvider';
+import BackNavigationHeader from '@/components/BackNavigationHeader';
+
 //main component function
 const Settings = () => {
     const colorScheme = useColorScheme();
     const navigation = useNavigation();
-    //  styles
+    const { userData} = useAuth();
+    
     const styles = StyleSheet.create({
         container: {
             flex: 1,
@@ -83,9 +87,10 @@ const Settings = () => {
     //return statement
     return (
         <SafeAreaView style={styles.container}>
+            <BackNavigationHeader/>
             <View style={styles.userInfoSection}>
-                <Title style={styles.title}>Maria Popescu</Title>
-                <Caption style={styles.caption}>@maria_p</Caption>
+                <Title style={styles.title}>{userData?.firstname}{userData?.lastname} </Title>
+                <Caption style={styles.caption}>@{userData?.username}</Caption>
             </View>
             <View style={styles.menuWrapper}>
                 {settingsOptions.map((option, index) => (

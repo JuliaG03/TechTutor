@@ -6,6 +6,7 @@ import { useColorScheme } from "react-native";
 import { useAuth } from '@/providers/AuthProvider';
 import stylesView from '@/components/Styles';
 import { LinearGradient } from 'expo-linear-gradient';
+import BackNavigationHeader from '@/components/BackNavigationHeader';
 
 export default function LearningPaths() {
     const colorScheme = useColorScheme();
@@ -13,6 +14,7 @@ export default function LearningPaths() {
     const { userData, loading, learningPaths,  } = useAuth();
     const generatedStyles = stylesView();
     const [shakeAnimation] = useState(new Animated.Value(0));
+    const [shakeId, setShakeId] = useState(null);
 
     useEffect(() => {
         if (!loading) {
@@ -20,7 +22,8 @@ export default function LearningPaths() {
         }
     }, [loading]);
 
-    const startShakeAnimation = (learningPathId) => {
+    const startShakeAnimation = (index, learningPathId) => {
+        setShakeId(index);
         shakeAnimation.setValue(0); // Resetează animația
     
         // Definește animația pentru shake
@@ -88,14 +91,15 @@ export default function LearningPaths() {
 
     return (
         <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? "light"].tabBackground }]}>
-            <Text style={[generatedStyles.title, { color: Colors[colorScheme ?? 'light'].tint }]}>Leaderboard</Text>
+            <BackNavigationHeader/>
+            <Text style={[generatedStyles.title, { color: Colors[colorScheme ?? 'light'].tint }]}>What do you want to learn today?</Text>
             <ScrollView contentContainerStyle={styles.scrollViewContent} showsVerticalScrollIndicator={false}>
                 {learningPaths && learningPaths.length > 0 ? (
                     learningPaths.map((learningPath, index) => (
                         <TouchableOpacity
                             key={index}
                             onPress={() => {
-                                startShakeAnimation(learningPath.idlearningpath)
+                                startShakeAnimation(index, learningPath.idlearningpath)
                             }}
                         >
                             <LinearGradient
@@ -104,9 +108,12 @@ export default function LearningPaths() {
                                 start={{ x: 0, y: 0 }}
                                 end={{ x: 1, y: 1 }}
                             >
-                                <Animated.Text style={[styles.learningPathText, { transform: [{ translateX: shakeAnimation.interpolate({ inputRange: [0, 1], outputRange: [0, 10] }) }] }]}>
-                                    {learningPath.name}
-                                </Animated.Text>
+                                {shakeId === index ?
+                                    <Animated.Text style={[styles.learningPathText, { transform: [{ translateX: shakeAnimation.interpolate({ inputRange: [0, 1], outputRange: [0, 10] }) }] }]}>
+                                        {learningPath.name}
+                                    </Animated.Text> :
+                                    <Text style={[styles.learningPathText]}>{learningPath.name}</Text>
+                                }
                             </LinearGradient>
                         </TouchableOpacity>
                     ))

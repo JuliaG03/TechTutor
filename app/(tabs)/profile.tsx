@@ -20,6 +20,7 @@ const ProfileScreen = () => {
     const isCurrentUser = userData?.id === route.params?.userId;
     const [profileData, setProfileData] = useState(null);
 
+   
     const onEditPress = () => {
         navigation.navigate('EditProfileScreen');
     };
@@ -31,7 +32,7 @@ const ProfileScreen = () => {
         } else {
             fetchUserProfileData(route.params?.userId);
         }
-    }, [route?.params.userId]);
+    }, [route?.params.userId, userData]);
     //function to fetch the user profile data
     const fetchUserProfileData = async (userId) => {
         try {//fetch the user data from the database
