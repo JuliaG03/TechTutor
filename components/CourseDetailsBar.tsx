@@ -6,7 +6,7 @@ import icons from '@/constants/icons';
 
 const colorScheme = useColorScheme();
 
-const CourseDetailsBar = ({ courseName, courseImg }) => {
+const CourseDetailsBar = ({ courseName}) => {
   return (
     <View style={[styles.container, { backgroundColor: Colors[colorScheme ?? "light"].text }]}>
       <View style={styles.iconContainer}>

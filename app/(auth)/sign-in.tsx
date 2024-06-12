@@ -43,7 +43,7 @@ const SignIn = () => {
         }
         if (userData) {
           // setSession(newData.session);
-            navigation.navigate('MainMenu');
+            navigation.navigate('Tabs', { screen : 'LearningMain' } );
         }
         setLoading(false);
     };
@@ -69,7 +69,6 @@ const SignIn = () => {
     const colorScheme = useColorScheme();
     const generatedStyles = stylesView(); 
     return (
-        <ScrollView showsVerticalScrollIndicator={false}>
             <View style={generatedStyles.root} >
                 <SafeAreaView style={[generatedStyles.bigView, {backgroundColor: Colors[colorScheme ?? 'light'].background }]}>
                     
@@ -101,7 +100,6 @@ const SignIn = () => {
                     />
                 </SafeAreaView>
             </View>
-        </ScrollView>
     );
 };
 
